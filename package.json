@@ -1,0 +1,33 @@
+{
+  "name": "ApprovingCorgis",
+  "version": "1.0.0",
+  "description": "Generator for Approving Corgis",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "got": "^10.7.0"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "author": "Rekt",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "merge-img": "^2.1.3"
+  },
+  "standard": {
+    "globals": [
+      "it",
+      "assert",
+      "beforeEach",
+      "afterEach",
+      "describe",
+      "contract",
+      "artifacts"
+    ]
+  }
+}
