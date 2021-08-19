@@ -2,3 +2,5 @@ node_modules
 npm-debug.log
 .DS_Store
 face_parts
+generated_corgis
+.env

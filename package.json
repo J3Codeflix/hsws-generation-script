@@ -16,6 +16,8 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
+    "@pinata/sdk": "^1.1.23",
+    "dotenv": "^10.0.0",
     "fs": "^0.0.1-security",
     "merge-img": "^2.1.3"
   },
