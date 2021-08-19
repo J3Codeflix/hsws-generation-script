@@ -1,124 +1,29 @@
 const fs = require("fs");
+require('dotenv').config()
 const mergeImg = require('merge-img');
+const partTypes = require('./parts')
+const pinataSDK = require('@pinata/sdk');
+const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_API_SECRET);
 
-const outputFolder = "./generated_faces";
-const outputCharacterJSON = "./generated_faces/characters.json";
-const outputAttributesJS = "./generated_faces/attributes.json";
+const outputFolder = "./generated_corgis";
+const outputCharacterJSON = "./outputs/metadata.json";
+const outputAttributesJS = "./outputs/attributes.json";
 
-const desiredCount = 20;
-const totalFaces = 9999;
+const desiredCount = 10;
+const totalFaces = 10000;
 
 const ext = ".png";
 const partFolder = "./face_parts";
 
-const partTypes = [
-  {
-    name: 'background/background',
-    count: 11,
-    offset: {x: 0, y: 0},
-    attrNames:['Cyan','Peach','Yellow','Green','Blue','Violet','Pink','Purple','Caramel','Grey','Beige'],
-    required: true,
-  },
-  {
-    name: 'fur/fur',
-    count: 8,
-    offset: {x:  -1080, y: 0},
-    attrNames:['Fawn','Orange','Red','Snow White','Pink','Chocolate','Maroon','Grey'],
-    required: true,
-  },
-  {
-    name: 'face/face',
-    count: 6,
-    offset: {x: -1080, y: 0},
-    attrNames:['Smiling','Happy','Crazy','Disapproving','Thick Eyebrows','Cigarette'],
-    required: true,
-  },
-  {
-    name: 'nose/nose',
-    count: 5,
-    offset: {x: -1080, y: 0},
-    attrNames:['black','dark brown','light brown','flesh','pink'],
-    required: true,
-  },
-  {
-    name: 'outfit/outfit',
-    count: 65,
-    offset: {x: -1080, y: 0},
-    attrNames:['','Baseball 1','Baseball 2','Football Jersey 1','Football Jersey 2','Graduation Gown','Chef','Pirate Red','Pirate Blue',
-    'Bandana Red','Bandana Purple','Taekwondo','King Crown Black','King Crown Red','Equestrian','Soldier','Basketball 1','Basketball 2',
-    'Hockey 1','Hockey 2','School Uniform','Polkadots 1','Polkadots 2','Stripe Longsleeves 1','Stripe Longsleeves 2','Scarf Black',
-    'Scarf Maroon','Paw Print Pink','Paw Print Yellow','Sweater Red','Sweater Purple','Jumper Blue','Jumper Purple','Cross Stitch 1',
-    'Cross Stitch 2','Mummy','Hoody 1','Hoody 2','Bow Tie Blue','Bow Tie Red','Life Vest','Gold Collar','Padded Armor Green','Padded Armor Brown',
-    'V-neck + Bone Print 1','V-neck + Bone Print 2','Padded Vest 1','Padded Vest 2','Polkadot Tie 1','Polkadot Tie 2','Striped Tie 1','Striped Tie 2',
-    'Spiked Collar','Xray Shirt','Tshirt + Rainbow 1','Tshirt + Rainbow 2','Tshirt + Etherium 1','Tshirt + Etherium 2','Tshirt Camouflag + Dog Tag Silver 1',
-    'Tshirt Camouflag + Dog Tag Silver 2','Stripe tshirt + Dog Tag Black 1','Stripe tshirt + Dog Tag Black 2','Fang Necklace','Rainbow Suspender Bowtie'],
-    required: false,
-  },
-  {
-    name: 'eyewear/eyewear',
-    count: 4,
-    offset: {x: -1080, y: 0},
-    attrNames:['','Goggles 1','Goggles 2','Eye Patch'],
-    required: false,
-  },
-  {
-    name: 'headwear/headwear',
-    count: 9,
-    offset: {x: -1080, y: 0},
-    attrNames:['','Graduation Cap','Chef Hat','Pirate Hat 1','Pirate Hat 2','Bandana 1','Bandana 2','Taekwondo','Demon'],
-    required: false,
-  },
-  {
-    name: 'earaccessory/earaccessory',
-    count: 4,
-    offset: {x: -1080, y: 0},
-    attrNames:['','Hoop Gold Piercing','Stud Silver Piercing','Double Stud Silver Piercing'],
-    required: false,
-  },
-]
-
-// function checkAttributeCompatibility(codeArr) {
-
-//   let blondeHair = false;
-//   let earring = false;
-//   for (let i=0; i<partTypes.length; i++) {
-//     if ((partTypes[i].name == "hair/hair") && (codeArr[i] == 10))
-//       blondeHair = true;
-//     if ((partTypes[i].name == "ears/ears") && (codeArr[i] >= 2))
-//       earring = true;
-//   }
-
-//   if (earring && blondeHair) return false;
-//   return true;
-// }
+const uploadToPinata = true;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-const generateRandomNumber = (from, to) => {
-  const number = Math.floor(Math.random() * to) + from;
-  return number;
+const generateRandomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
 }
-
-// function detectGender(codeArr) {
-//   let male = false;
-//   let female = false;
-//   for (let i=0; i < partTypes.length; i++) {
-//     if (codeArr[i] != 0) {
-//       const attrGender = partTypes[i].attrSex[codeArr[i]-1];
-//       if (attrGender == "m") male = true;
-//       if (attrGender == "f") female = true;
-//     }
-//   }
-
-//   if (male && female) return "Invalid";
-//   if (male) return "Male";
-//   if (female) return "Female";
-
-//   if (getRandomInt(100) > 50) return "Female";
-//   else return "Male";
-// }
 
 function mergeImagesToPng(images, output) {
   return new Promise(function(resolve, reject) {
@@ -137,18 +42,45 @@ function mergeImagesToPng(images, output) {
 async function saveFaceByCode(codeArr, outFile) {
   let images = [];
   for (let i=0; i < partTypes.length; i++) {
-    if (codeArr[i] != 0) {
-      const img = {
-        src: `${partFolder}/${partTypes[i].name}${codeArr[i]}${ext}`,
-        offsetX: partTypes[i].offset.x,
-        offsetY: partTypes[i].offset.y,
-      }
-      images.push(img);
+    const img = {
+      src: `${partFolder}/${partTypes[i].name}${codeArr[i]}${ext}`,
+      offsetX: partTypes[i].offset.x,
+      offsetY: partTypes[i].offset.y,
     }
+    images.push(img);
   }
 
   // Generate image
   await mergeImagesToPng(images, outFile);
+}
+
+const getPair = (part) => {
+  switch (part) {
+    case 1:
+      return 1
+    case 2:
+      return 1
+    case 6:
+      return 2
+    case 7:
+      return 3
+    case 8:
+      return 4
+    case 9:
+      return 5
+    case 10:
+      return 6
+    case 11:
+      return 7
+    case 12:
+      return 8
+    case 21:
+      return 10
+    case 22:
+      return 10
+    default:
+      return 0
+  }
 }
 
 
@@ -162,6 +94,7 @@ async function generateFaces() {
   let attrMap = {};
   let attrFreq = {};
   let attrCount = 0;
+  let headWear = 0;
   for (let i=0; i < partTypes.length; i++) {
     for (let j=1; j<=partTypes[i].count; j++) {
       if (partTypes[i].attrNames[j-1].length > 0) {
@@ -176,22 +109,8 @@ async function generateFaces() {
   attrjs += "\n\nmodule.exports.attributes = attributes;";
   fs.writeFileSync(outputAttributesJS, attrjs);
 
-  // "Code array" contains the code of current "face"
-  // Initialize it to the first "face"
-  let codeArr = [];
-  
-  for (let i=0; i < partTypes.length; i++) {
-    if (partTypes[i].required) {
-      const random = generateRandomNumber(1, partTypes[i].count)
-      codeArr.push(random);
-    } else { 
-      const randomo2 = generateRandomNumber(0, partTypes[i].count)
-      codeArr.push(randomo2);
-    }
-  }
-  console.log("🚀 ~ file: generate-corgis.js ~ line 196 ~ generateFaces ~ codeArr", codeArr)
-  let imgCount = 0;
-
+  let imgCount = 1;
+  let excludedHeadwear = [1,2,3,4,5,6,7,8,10,18,50];
   // In the loop generate faces and increase the code by one
   let exhausted = false;
   while (!exhausted) {
@@ -200,53 +119,76 @@ async function generateFaces() {
     // let valid = checkAttributeCompatibility(codeArr);
 
     // Skip faces randomly to get close to desired count
+    codeArr = []
+    for (let i=0; i < partTypes.length; i++) {
+      let random = generateRandomNumber(0, partTypes[i].count - 1);
+      
+      if(i === 5) {
+        headWear = getPair(random);
+        codeArr.push(random);
+      } else if(i === 7) {
+        if(headWear === 0) {
+          do {
+            random = generateRandomNumber(0, partTypes[i].count - 1);
+          } while (excludedHeadwear.includes(random));
+          codeArr.push(random);
+        } else {
+          codeArr.push(headWear);
+        }
+      } else {
+        codeArr.push(random);
+      }
+    }
+
     const r = (getRandomInt(1000)+1)/1200;
     // const r = 0;
     if ((r <= desiredCount/totalFaces)) {
-    // if ((r <= desiredCount/totalFaces) && (gender != "Invalid") && (valid)) {
       // Generate and save current face
       await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
-
+      let imgPinResult;
+      if(uploadToPinata) {
+        const result = await pinata.pinFromFS(`${outputFolder}/approving-corgi${imgCount}${ext}`);
+        imgPinResult = `https://approvingcorgis.mypinata.cloud/ipfs/${result.IpfsHash}`
+      }
       // Add character with accessories
       c = {
-        id: imgCount,
-        // gender: gender,
-        attributes: []
+        name: `Approving Corgis #${imgCount}`,
+        description: "9,999 adorable corgi #NFTs. Don’t worry, they won’t judge or disapprove of you...well, at least most of them won't.", 
+        image: imgPinResult,
+        attributes: [],
       };
+
       for (let i=0; i < partTypes.length; i++) {
         if (partTypes[i].attrNames.length != 0)
-          if (codeArr[i] != 0) {
+          if (codeArr[i] !== 0) {
             let attrName = partTypes[i].attrNames[codeArr[i]-1];
-            if (attrName.length > 0) {
-              c.attributes.push(attrMap[attrName]);
+            // if (attrName.length > 0) {
+              c.attributes.push({trait_type: partTypes[i].name.split('/')[1], value: partTypes[i].attrNames[codeArr[i]]});
               attrFreq[attrName]++;
-            }
+            // }
           }
       }
-      characters.push(c);
 
+      if(uploadToPinata) {
+        const options = {
+          pinataMetadata: {
+            name: `Approving Corgis #${imgCount}`,
+          },
+        }
+        const jsonPinResult = await pinata.pinJSONToIPFS(c, options);
+        characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
+      } else {
+        characters.push(c);
+      }
       imgCount++;
-    } else {
-      // console.log(`Skipping. r = ${r}, gender = ${gender}, codeArr=${codeArr}`);
     }
 
     // Increate code by 1
-    let canIncrease = false;
-    for (let i=0; i < partTypes.length; i++) {
-      if (codeArr[i] < partTypes[i].count) {
-        canIncrease = true;
-        codeArr[i]++;
-        for (let j=i-1; j>=0; j--) {
-          if (partTypes[j].required)
-            codeArr[j] = 1;
-          else
-            codeArr[j] = 0;
-        }
-        break;
-      }
-    }
-    if (!canIncrease) exhausted = true;
-    if (imgCount == desiredCount) break;
+    
+    // if (!canIncrease) exhausted = true;
+    if (imgCount == desiredCount + 1) {
+      exhausted = true;
+    };
   }
 
   // Save characters' JSON
