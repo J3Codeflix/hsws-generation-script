@@ -1,7 +1,7 @@
 const fs = require("fs");
 require('dotenv').config()
 const mergeImg = require('merge-img');
-const partTypes = require('./parts-types')
+const partTypes = require('./parts')
 const pinataSDK = require('@pinata/sdk');
 const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_API_SECRET);
 
@@ -35,6 +35,7 @@ function mergeImagesToPng(images, output) {
         resolve();
       });
     });
+    // resolve();
   });
 }
 
@@ -48,7 +49,7 @@ async function saveFaceByCode(codeArr, outFile) {
     }
     images.push(img);
   }
-  console.log("🚀 ~ file: generate-corgis.js ~ line 99 ~ saveFaceByCode ~ images", images)
+
   // Generate image
   await mergeImagesToPng(images, outFile);
 }
@@ -83,7 +84,7 @@ const getPair = (part) => {
 }
 
 
-async function generateCorgis() {
+async function generateFaces() {
 
   // Array that lists all characters
   let characters = [];
@@ -144,14 +145,12 @@ async function generateCorgis() {
     if ((r <= desiredCount/totalFaces)) {
       // Generate and save current face
       await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
-
-      // upload to IPFS
       let imgPinResult;
       if(uploadToPinata) {
         const result = await pinata.pinFromFS(`${outputFolder}/approving-corgi${imgCount}${ext}`);
         imgPinResult = `https://approvingcorgis.mypinata.cloud/ipfs/${result.IpfsHash}`
       }
-      // Add character with attributes to metadata
+      // Add character with accessories
       c = {
         name: `Approving Corgis #${imgCount}`,
         description: "9,999 adorable corgi #NFTs. Don’t worry, they won’t judge or disapprove of you...well, at least most of them won't.", 
@@ -163,8 +162,10 @@ async function generateCorgis() {
         if (partTypes[i].attrNames.length != 0)
           if (codeArr[i] !== 0) {
             let attrName = partTypes[i].attrNames[codeArr[i]-1];
+            // if (attrName.length > 0) {
               c.attributes.push({trait_type: partTypes[i].name.split('/')[1], value: partTypes[i].attrNames[codeArr[i]]});
               attrFreq[attrName]++;
+            // }
           }
       }
 
@@ -181,7 +182,10 @@ async function generateCorgis() {
       }
       imgCount++;
     }
+
+    // Increate code by 1
     
+    // if (!canIncrease) exhausted = true;
     if (imgCount == desiredCount + 1) {
       exhausted = true;
     };
@@ -195,7 +199,7 @@ async function generateCorgis() {
 }
 
 async function main() {
-  await generateCorgis();
+  await generateFaces();
 }
 
 main();
