@@ -12,6 +12,7 @@ const outputFolder = "./generated-corgis";
 const outputCharacterJSON = "./outputs/metadata.json";
 const outputAttributes = "./outputs/attributes.json";
 const outputTiers = "./outputs/tiers.json";
+const totalTiers = "./outputs/total-tiers.json";
 
 const desiredCount = 5;
 
@@ -23,6 +24,11 @@ let characters = [];
   // Save attributes and generate map of attributes to saved array index
 let attrArray = [];
 let tiersArray = [];
+let approvingCorgiTiers = {
+  approving: 0,
+  disapproving: 0,
+  epic: 0,
+}
 
 // approving = common, disapproving = uncommon, epic = rare/legendary 
 const tiers = ['approving','disapproving','epic'];
@@ -195,7 +201,7 @@ async function generateMetadata(imgCount, codeArr, imgPin) {
         c.attributes.push({trait_type: disapprovingParts[_index].name.split('/')[1], value: disapprovingParts[_index].attrNames[codeAr.code]});
       }
     } else {
-      tierCount.epic+=1
+      tierCount.epic+=1;
       let attrName = disapprovingParts[_index].attrNames[codeAr.code];
       attrArray.find(attr => attr.attribute === attrName).count+=1;
       if(epicParts[_index].attrNames[codeAr.code] !== '') {
@@ -206,10 +212,13 @@ async function generateMetadata(imgCount, codeArr, imgPin) {
 
   if(tierCount.epic > 0) {
     c.attributes.push({trait_type: 'Tier', value: 'Epic'});
+    approvingCorgiTiers.epic+=1;
   } else if (tierCount.disapproving >= 3){
     c.attributes.push({trait_type: 'Tier', value: 'Disapproving'});
+    approvingCorgiTiers.disapproving+=1;
   } else {
     c.attributes.push({trait_type: 'Tier', value: 'Approving'});
+    approvingCorgiTiers.approving+=1;
   }
 
   return c;
@@ -319,6 +328,7 @@ async function generateCorgis() {
   fs.writeFileSync(outputCharacterJSON, JSON.stringify(characters));
   fs.writeFileSync(outputAttributes, JSON.stringify(attrArray));
   fs.writeFileSync(outputTiers, JSON.stringify(tiersArray));
+  fs.writeFileSync(totalTiers, JSON.stringify(approvingCorgiTiers));
 }
 
 async function main() {
