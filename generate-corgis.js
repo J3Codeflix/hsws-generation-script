@@ -1,21 +1,37 @@
 const fs = require("fs");
 require('dotenv').config()
 const mergeImg = require('merge-img');
-const partTypes = require('./parts-types')
+const approvingParts = require('./parts-approving')
+const disapprovingParts = require('./parts-disapproving')
+const epicParts = require('./parts-epic')
+
 const pinataSDK = require('@pinata/sdk');
 const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_API_SECRET);
 
-const outputFolder = "./generated_corgis";
+const outputFolder = "./generated-corgis";
 const outputCharacterJSON = "./outputs/metadata.json";
-const outputAttributesJS = "./outputs/attributes.json";
+const outputAttributes = "./outputs/attributes.json";
+const outputTiers = "./outputs/tiers.json";
 
-const desiredCount = 10;
-const totalFaces = 10000;
+const desiredCount = 5;
 
 const ext = ".png";
-const partFolder = "./face_parts";
 
-const uploadToPinata = true;
+const uploadToPinata = false;
+
+let characters = [];
+  // Save attributes and generate map of attributes to saved array index
+let attrArray = [];
+let tiersArray = [];
+
+// approving = common, disapproving = uncommon, epic = rare/legendary 
+const tiers = ['approving','disapproving','epic'];
+
+// 65%, 30%, 5%
+const tiersWeight = [65, 30, 5];
+const totalWeight = 100;
+
+let weightedTiers;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -34,23 +50,89 @@ function mergeImagesToPng(images, output) {
         console.log(`Image ${output} saved`);
         resolve();
       });
+    }).catch(err => {
     });
   });
 }
 
 async function saveFaceByCode(codeArr, outFile) {
   let images = [];
-  for (let i=0; i < partTypes.length; i++) {
-    const img = {
-      src: `${partFolder}/${partTypes[i].name}${codeArr[i]}${ext}`,
-      offsetX: partTypes[i].offset.x,
-      offsetY: partTypes[i].offset.y,
+  let tier;
+  codeArr.forEach((code, _index) => {
+    if(code.tier === 'approving') {
+      tier = approvingParts;
+    } else if (code.tier === 'disapproving') {
+      tier = disapprovingParts;
+    } else {
+      tier = epicParts;
     }
+    const img = {
+      src: `./face-parts-${code.tier}/${tier[_index].name}${code.code}${ext}`,
+      offsetX: tier[_index].offset.x,
+      offsetY: tier[_index].offset.y,
+    }
+
     images.push(img);
-  }
-  console.log("🚀 ~ file: generate-corgis.js ~ line 99 ~ saveFaceByCode ~ images", images)
+  });
   // Generate image
   await mergeImagesToPng(images, outFile);
+}
+
+async function generateTiers() {
+   
+  const weighedTiers = new Array(); 
+  var currentTier=0
+  
+  while (currentTier<tiers.length){ 
+    for (i=0; i<tiersWeight[currentTier]; i++)
+    weighedTiers[weighedTiers.length]=tiers[currentTier]
+    currentTier++
+  }
+
+  tiers.forEach(tier => {
+    tiersArray.push({tier, count: 0});
+  })
+  
+  return weighedTiers;
+}
+
+async function createAttributesCount() {
+  approvingParts.forEach(approving => {
+    approving.attrNames.forEach(attribute => {
+      if(attribute === '') {
+        if(!attrArray.some(attr => attr.attribute === '')) {
+          attrArray.push({attribute, count: 0 })
+        }
+      } else {
+        attrArray.push({attribute, count: 0 })
+      }
+    })
+  });
+  
+  disapprovingParts.forEach(approving => {
+    approving.attrNames.forEach(attribute => {
+      if(attribute === '') {
+        if(!attrArray.some(attr => attr.attribute === '')) {
+          attrArray.push({attribute, count: 0 })
+        }
+      } else {
+        attrArray.push({attribute, count: 0 })
+      }
+      
+    })
+  });
+  
+  epicParts.forEach(approving => {
+    approving.attrNames.forEach(attribute => {
+      if(attribute === '') {
+        if(!attrArray.some(attr => attr.attribute === '')) {
+          attrArray.push({attribute, count: 0 })
+        } 
+      } else {
+        attrArray.push({attribute, count: 0 })
+      }
+    })
+  });
 }
 
 const getPair = (part) => {
@@ -82,116 +164,161 @@ const getPair = (part) => {
   }
 }
 
+async function generateMetadata(imgCount, codeArr, imgPin) {
+  c = {
+    name: `Approving Corgis #${imgCount}`,
+    description: "9,999 adorable corgi #NFTs. Don’t worry, they won’t judge or disapprove of you...well, at least most of them won't.", 
+    image: imgPin,
+    attributes: [],
+  };
 
-async function generateCorgis() {
+  let tierCount = {
+    approving: 0,
+    disapproving: 0,
+    epic: 0,
+  }
 
-  // Array that lists all characters
-  let characters = [];
-
-  // Save attributes and generate map of attributes to saved array index
-  let attrArray = [];
-  let attrMap = {};
-  let attrFreq = {};
-  let attrCount = 0;
-  let headWear = 0;
-  for (let i=0; i < partTypes.length; i++) {
-    for (let j=1; j<=partTypes[i].count; j++) {
-      if (partTypes[i].attrNames[j-1].length > 0) {
-        attrArray.push(partTypes[i].attrNames[j-1]);
-        attrMap[partTypes[i].attrNames[j-1]] = attrCount;
-        attrFreq[partTypes[i].attrNames[j-1]] = 0;
-        attrCount++;
+  codeArr.forEach((codeAr, _index) => {
+    tiersArray.find(tier => tier.tier === codeAr.tier).count+=1;
+    if(codeAr.tier === 'approving') {
+      tierCount.approving+=1;
+      let attrName = approvingParts[_index].attrNames[codeAr.code];
+      attrArray.find(attr => attr.attribute === attrName).count+=1;
+      if(approvingParts[_index].attrNames[codeAr.code] !== ''){
+        c.attributes.push({trait_type: approvingParts[_index].name.split('/')[1], value: approvingParts[_index].attrNames[codeAr.code]});
+      }
+    } else if(codeAr.tier === 'disapproving') {
+      tierCount.disapproving+=1;
+      let attrName = disapprovingParts[_index].attrNames[codeAr.code];
+      attrArray.find(attr => attr.attribute === attrName).count+=1;
+      if(disapprovingParts[_index].attrNames[codeAr.code] !== ''){ 
+        c.attributes.push({trait_type: disapprovingParts[_index].name.split('/')[1], value: disapprovingParts[_index].attrNames[codeAr.code]});
+      }
+    } else {
+      tierCount.epic+=1
+      let attrName = disapprovingParts[_index].attrNames[codeAr.code];
+      attrArray.find(attr => attr.attribute === attrName).count+=1;
+      if(epicParts[_index].attrNames[codeAr.code] !== '') {
+        c.attributes.push({trait_type: epicParts[_index].name.split('/')[1], value: epicParts[_index].attrNames[codeAr.code]});
       }
     }
+  });
+
+  if(tierCount.epic > 0) {
+    c.attributes.push({trait_type: 'Tier', value: 'Epic'});
+  } else if (tierCount.disapproving >= 3){
+    c.attributes.push({trait_type: 'Tier', value: 'Disapproving'});
+  } else {
+    c.attributes.push({trait_type: 'Tier', value: 'Approving'});
   }
-  let attrjs = `const attributes = ${JSON.stringify(attrArray)};`;
-  attrjs += "\n\nmodule.exports.attributes = attributes;";
-  fs.writeFileSync(outputAttributesJS, attrjs);
+
+  return c;
+}
+
+async function generateCorgis() {
+  // generate all tiers
+  weightedTiers = await generateTiers();
+  // Array that lists all characters
+  await createAttributesCount();
 
   let imgCount = 1;
   let excludedHeadwear = [1,2,3,4,5,6,7,8,10,18,50];
-  // In the loop generate faces and increase the code by one
-  let exhausted = false;
-  while (!exhausted) {
-    // Check if combination is valid
-    // let gender = detectGender(codeArr);
-    // let valid = checkAttributeCompatibility(codeArr);
 
-    // Skip faces randomly to get close to desired count
-    codeArr = []
-    for (let i=0; i < partTypes.length; i++) {
-      let random = generateRandomNumber(0, partTypes[i].count - 1);
-      
-      if(i === 5) {
-        headWear = getPair(random);
-        codeArr.push(random);
-      } else if(i === 7) {
-        if(headWear === 0) {
-          do {
-            random = generateRandomNumber(0, partTypes[i].count - 1);
-          } while (excludedHeadwear.includes(random));
-          codeArr.push(random);
-        } else {
-          codeArr.push(headWear);
-        }
-      } else {
-        codeArr.push(random);
-      }
-    }
+  while(imgCount < desiredCount + 1) {
+    codeArr = [];
+    let headWear = 0;
 
-    const r = (getRandomInt(1000)+1)/1200;
-    // const r = 0;
-    if ((r <= desiredCount/totalFaces)) {
-      // Generate and save current face
-      await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
-
-      // upload to IPFS
-      let imgPinResult;
-      if(uploadToPinata) {
-        const result = await pinata.pinFromFS(`${outputFolder}/approving-corgi${imgCount}${ext}`);
-        imgPinResult = `https://approvingcorgis.mypinata.cloud/ipfs/${result.IpfsHash}`
-      }
-      // Add character with attributes to metadata
-      c = {
-        name: `Approving Corgis #${imgCount}`,
-        description: "9,999 adorable corgi #NFTs. Don’t worry, they won’t judge or disapprove of you...well, at least most of them won't.", 
-        image: imgPinResult,
-        attributes: [],
-      };
-
-      for (let i=0; i < partTypes.length; i++) {
-        if (partTypes[i].attrNames.length != 0)
-          if (codeArr[i] !== 0) {
-            let attrName = partTypes[i].attrNames[codeArr[i]-1];
-              c.attributes.push({trait_type: partTypes[i].name.split('/')[1], value: partTypes[i].attrNames[codeArr[i]]});
-              attrFreq[attrName]++;
+    // generate code array per tiers
+    for (let i=0; i < 8; i++) {
+      const randomTier = await getRandomInt(totalWeight);
+      const tier = weightedTiers[randomTier];
+      if(tier === 'approving'){
+        let random = generateRandomNumber(0, approvingParts[i].count - 1);
+        
+        if(i === 5) {
+          headWear = getPair(random);
+          codeArr.push({ tier: tier, code: random});
+        } else if(i === 7) {
+          if(headWear === 0) {
+            do {
+              random = generateRandomNumber(0, approvingParts[i].count - 1);
+            } while (excludedHeadwear.includes(random));
+            codeArr.push({ tier: tier, code: random});
+          } else {
+            codeArr.push({ tier: tier, code: headWear});
           }
-      }
-
-      if(uploadToPinata) {
-        const options = {
-          pinataMetadata: {
-            name: `Approving Corgis #${imgCount}`,
-          },
+        } else {
+          codeArr.push({ tier: tier, code: random});
         }
-        const jsonPinResult = await pinata.pinJSONToIPFS(c, options);
-        characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
+      } else if(tier === 'disapproving'){
+        let random = generateRandomNumber(0, disapprovingParts[i].count - 1);
+        
+        if(i === 5) {
+          headWear = getPair(random);
+          codeArr.push({ tier: tier, code: random});
+        } else if(i === 7) {
+          if(headWear === 0) {
+            do {
+              random = generateRandomNumber(0, disapprovingParts[i].count - 1);
+            } while (excludedHeadwear.includes(random));
+            codeArr.push({ tier: tier, code: random});
+          } else {
+            codeArr.push({ tier: tier, code: headWear});
+          }
+        } else {
+          codeArr.push({ tier: tier, code: random});
+        }
       } else {
-        characters.push(c);
+        let random = generateRandomNumber(0, epicParts[i].count - 1);
+        
+        if(i === 5) {
+          headWear = getPair(random);
+          codeArr.push({ tier: tier, code: random});
+        } else if(i === 7) {
+          if(headWear === 0) {
+            do {
+              random = generateRandomNumber(0, epicParts[i].count - 1);
+            } while (excludedHeadwear.includes(random));
+            codeArr.push({ tier: tier, code: random});
+          } else {
+            codeArr.push({ tier: tier, code: headWear});
+          }
+        } else {
+          codeArr.push({ tier: tier, code: random});
+        }
       }
-      imgCount++;
     }
+
+    // generate image
+    await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
+
+    // upload to IPFS
+    let imgPinResult;
+    if(uploadToPinata) {
+      const result = await pinata.pinFromFS(`${outputFolder}/approving-corgi${imgCount}${ext}`);
+      imgPinResult = `https://approvingcorgis.mypinata.cloud/ipfs/${result.IpfsHash}`
+    }
+    // Add character with attributes to metadata
+    const ch = await generateMetadata(imgCount, codeArr, imgPinResult);
+
+    if(uploadToPinata) {
+      const options = {
+        pinataMetadata: {
+          name: `Approving Corgis #${imgCount}`,
+        },
+      }
+      const jsonPinResult = await pinata.pinJSONToIPFS(ch, options);
+      characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
+    } else {
+      characters.push(ch);
+    }
+    imgCount++;
     
-    if (imgCount == desiredCount + 1) {
-      exhausted = true;
-    };
   }
 
-  // Save characters' JSON
   fs.writeFileSync(outputCharacterJSON, JSON.stringify(characters));
-
-  console.log("Total generated characters: ", imgCount);
-  console.log("Attribute frequencies: ", attrFreq);
+  fs.writeFileSync(outputAttributes, JSON.stringify(attrArray));
+  fs.writeFileSync(outputTiers, JSON.stringify(tiersArray));
 }
 
 async function main() {
@@ -199,9 +326,3 @@ async function main() {
 }
 
 main();
-
-// function test() {
-//   code = [1, 6, 2, 4, 4, 1, 8, 1];
-//   console.log(detectGender(code));
-// }
-// test();
