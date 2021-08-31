@@ -3,7 +3,7 @@ require('dotenv').config()
 const mergeImg = require('merge-img');
 const approvingParts = require('./parts-approving')
 const disapprovingParts = require('./parts-disapproving')
-const epicParts = require('./parts-epic')
+const rareParts = require('./parts-rare')
 
 const pinataSDK = require('@pinata/sdk');
 const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_API_SECRET);
@@ -14,7 +14,7 @@ const outputAttributes = "./outputs/attributes.json";
 const outputTiers = "./outputs/tiers.json";
 const totalTiers = "./outputs/total-tiers.json";
 
-const desiredCount = 5;
+const desiredCount = 500;
 
 const ext = ".png";
 
@@ -27,11 +27,11 @@ let tiersArray = [];
 let approvingCorgiTiers = {
   approving: 0,
   disapproving: 0,
-  epic: 0,
+  rare: 0,
 }
 
-// approving = common, disapproving = uncommon, epic = rare/legendary 
-const tiers = ['approving','disapproving','epic'];
+// approving = common, disapproving = uncommon, rare = rare/legendary 
+const tiers = ['approving','disapproving','rare'];
 
 // 65%, 30%, 5%
 const tiersWeight = [65, 30, 5];
@@ -57,11 +57,13 @@ function mergeImagesToPng(images, output) {
         resolve();
       });
     }).catch(err => {
+      console.log("🚀 ~ file: generate-corgis.js ~ line 109 ~ .then ~ err", err)
     });
   });
 }
 
 async function saveFaceByCode(codeArr, outFile) {
+  console.log("🚀 ~ file: generate-corgis.js ~ line 66 ~ saveFaceByCode ~ codeArr", codeArr)
   let images = [];
   let tier;
   codeArr.forEach((code, _index) => {
@@ -70,7 +72,7 @@ async function saveFaceByCode(codeArr, outFile) {
     } else if (code.tier === 'disapproving') {
       tier = disapprovingParts;
     } else {
-      tier = epicParts;
+      tier = rareParts;
     }
     const img = {
       src: `./face-parts-${code.tier}/${tier[_index].name}${code.code}${ext}`,
@@ -128,7 +130,7 @@ async function createAttributesCount() {
     })
   });
   
-  epicParts.forEach(approving => {
+  rareParts.forEach(approving => {
     approving.attrNames.forEach(attribute => {
       if(attribute === '') {
         if(!attrArray.some(attr => attr.attribute === '')) {
@@ -141,32 +143,25 @@ async function createAttributesCount() {
   });
 }
 
-const getPair = (part) => {
-  switch (part) {
-    case 1:
-      return 1
-    case 2:
-      return 1
-    case 6:
-      return 2
-    case 7:
-      return 3
-    case 8:
-      return 4
-    case 9:
-      return 5
-    case 10:
-      return 6
-    case 11:
-      return 7
-    case 12:
-      return 8
-    case 21:
-      return 10
-    case 22:
-      return 10
-    default:
-      return 0
+const getPair = (part, tier) => {
+  if(tier === 'approving') {
+    if(part > 0 && part <= 22) {
+      return part;
+    } else {
+      return 0;
+    }
+  } else if(tier === 'disapproving') {
+    if(part > 0 && part <= 17) {
+      return part;
+    } else {
+      return 0;
+    }
+  } else if (tier === 'rare') {
+    if (part === 5) {
+      return 14;
+    } else {
+      return 0;
+    }
   }
 }
 
@@ -181,7 +176,7 @@ async function generateMetadata(imgCount, codeArr, imgPin) {
   let tierCount = {
     approving: 0,
     disapproving: 0,
-    epic: 0,
+    rare: 0,
   }
 
   codeArr.forEach((codeAr, _index) => {
@@ -201,25 +196,16 @@ async function generateMetadata(imgCount, codeArr, imgPin) {
         c.attributes.push({trait_type: disapprovingParts[_index].name.split('/')[1], value: disapprovingParts[_index].attrNames[codeAr.code]});
       }
     } else {
-      tierCount.epic+=1;
+      tierCount.rare+=1;
       let attrName = disapprovingParts[_index].attrNames[codeAr.code];
       attrArray.find(attr => attr.attribute === attrName).count+=1;
-      if(epicParts[_index].attrNames[codeAr.code] !== '') {
-        c.attributes.push({trait_type: epicParts[_index].name.split('/')[1], value: epicParts[_index].attrNames[codeAr.code]});
+      if(rareParts[_index].attrNames[codeAr.code] !== '') {
+        c.attributes.push({trait_type: rareParts[_index].name.split('/')[1], value: rareParts[_index].attrNames[codeAr.code]});
       }
     }
   });
 
-  if(tierCount.epic > 0) {
-    c.attributes.push({trait_type: 'Tier', value: 'Epic'});
-    approvingCorgiTiers.epic+=1;
-  } else if (tierCount.disapproving >= 3){
-    c.attributes.push({trait_type: 'Tier', value: 'Disapproving'});
-    approvingCorgiTiers.disapproving+=1;
-  } else {
-    c.attributes.push({trait_type: 'Tier', value: 'Approving'});
-    approvingCorgiTiers.approving+=1;
-  }
+  c.attributes.push({trait_type: 'Tier', value: codeArr[2].tier.charAt(0).toUpperCase() + codeArr[2].tier.slice(1)});
 
   return c;
 }
@@ -230,31 +216,32 @@ async function generateCorgis() {
   // Array that lists all characters
   await createAttributesCount();
 
-  let imgCount = 1;
-  let excludedHeadwear = [1,2,3,4,5,6,7,8,10,18,50];
+  let imgCount = 0;
+  let excludedRareFace = [0,1,5,6];
+  let excludedRareOutfit = [1,3,9,13];
 
-  while(imgCount < desiredCount + 1) {
+  while(imgCount < desiredCount) {
     codeArr = [];
-    let headWear = 0;
-
+    let outfit = 0;
+    let noEyewear = false;
+    let removeHeadwear = false;
     // generate code array per tiers
+    const randomTier = await getRandomInt(totalWeight);
+    const tier = weightedTiers[randomTier];
+    approvingCorgiTiers[tier]+=1;
     for (let i=0; i < 8; i++) {
-      const randomTier = await getRandomInt(totalWeight);
-      const tier = weightedTiers[randomTier];
       if(tier === 'approving'){
         let random = generateRandomNumber(0, approvingParts[i].count - 1);
         
-        if(i === 5) {
-          headWear = getPair(random);
+        if(i === 6) {
+          outfit = getPair(random, tier);
           codeArr.push({ tier: tier, code: random});
         } else if(i === 7) {
-          if(headWear === 0) {
-            do {
-              random = generateRandomNumber(0, approvingParts[i].count - 1);
-            } while (excludedHeadwear.includes(random));
+          if(outfit === 0) {
+            random = generateRandomNumber(23, approvingParts[7].count - 1);
             codeArr.push({ tier: tier, code: random});
           } else {
-            codeArr.push({ tier: tier, code: headWear});
+            codeArr.push({ tier: tier, code: outfit});
           }
         } else {
           codeArr.push({ tier: tier, code: random});
@@ -262,35 +249,48 @@ async function generateCorgis() {
       } else if(tier === 'disapproving'){
         let random = generateRandomNumber(0, disapprovingParts[i].count - 1);
         
-        if(i === 5) {
-          headWear = getPair(random);
+        if(i === 6) {
+          outfit = getPair(random, tier);
           codeArr.push({ tier: tier, code: random});
         } else if(i === 7) {
-          if(headWear === 0) {
-            do {
-              random = generateRandomNumber(0, disapprovingParts[i].count - 1);
-            } while (excludedHeadwear.includes(random));
+          if(outfit === 0) {
+            random = generateRandomNumber(40, disapprovingParts[7].count - 1);
             codeArr.push({ tier: tier, code: random});
           } else {
-            codeArr.push({ tier: tier, code: headWear});
+            codeArr.push({ tier: tier, code: outfit});
           }
         } else {
           codeArr.push({ tier: tier, code: random});
         }
       } else {
-        let random = generateRandomNumber(0, epicParts[i].count - 1);
-        
-        if(i === 5) {
-          headWear = getPair(random);
+        let random = generateRandomNumber(0, rareParts[i].count - 1);
+
+        if(i === 2) {
+          if(excludedRareFace.includes(random)) {
+            noEyewear = true;
+          }
+          codeArr.push({ tier: tier, code: random});
+        } else if(i === 5) {
+          if(noEyewear) {
+            codeArr.push({ tier: tier, code: 0});
+          } else {
+            codeArr.push({ tier: tier, code: random});
+          }
+        } else if (i === 6) {
+          outfit = getPair(random, tier);
           codeArr.push({ tier: tier, code: random});
         } else if(i === 7) {
-          if(headWear === 0) {
+          if(excludedRareOutfit.includes(random)) {
+            removeHeadwear = true;
+            codeArr[6].code = 0;
+          }
+          if(outfit === 0) {
             do {
-              random = generateRandomNumber(0, epicParts[i].count - 1);
-            } while (excludedHeadwear.includes(random));
+              random = generateRandomNumber(0, rareParts[7].count - 1);
+            } while (random === 14);
             codeArr.push({ tier: tier, code: random});
           } else {
-            codeArr.push({ tier: tier, code: headWear});
+            codeArr.push({ tier: tier, code: outfit});
           }
         } else {
           codeArr.push({ tier: tier, code: random});
@@ -298,6 +298,9 @@ async function generateCorgis() {
       }
     }
 
+    if(removeHeadwear) {
+      codeArr[6].code = 0;
+    }
     // generate image
     await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
 
