@@ -19,7 +19,7 @@ const desiredCount = 30;
 
 const ext = ".png";
 
-const uploadToPinata = false;
+const uploadToPinata = true;
 const isLive = false;
 
 let characters = [];
@@ -371,10 +371,10 @@ async function generateCorgis() {
     
   }
 
-  fs.writeFileSync(outputCharacterJSON, JSON.stringify(characters));
-  fs.writeFileSync(outputAttributes, JSON.stringify(attrArray));
-  fs.writeFileSync(outputTiers, JSON.stringify(tiersArray));
-  fs.writeFileSync(totalTiers, JSON.stringify(approvingCorgiTiers));
+  fs.writeFileSync(outputCharacterJSON, JSON.stringify(characters, null, 2));
+  fs.writeFileSync(outputAttributes, JSON.stringify(attrArray, null, 2));
+  fs.writeFileSync(outputTiers, JSON.stringify(tiersArray, null, 2));
+  fs.writeFileSync(totalTiers, JSON.stringify(approvingCorgiTiers, null, 2));
 }
 
 async function main() {
