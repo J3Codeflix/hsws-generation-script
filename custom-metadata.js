@@ -79,7 +79,7 @@ module.exports = [
     description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
-      {trait_type:"Background",value:"Blue"},
+      {trait_type:"Background",value:"Yellow"},
       {trait_type:"Fur",value:"Fawn"},
       {trait_type:"Face",value:"Hockey Mask"},
       {trait_type:"Nose",value:"Black"},
@@ -425,7 +425,7 @@ module.exports = [
       {trait_type:"Face",value:"Smiling"},
       {trait_type:"Nose",value:"Black"},
       {trait_type:"Eyewear",value:"Cyan Rectangular Shades"},
-      {trait_type:"Outfit",value:"LV Blazer"},
+      {trait_type:"Outfit",value:"Bone Suit"},
       {trait_type:"Headwear",value:"Old Hair"}
     ],
   },
@@ -476,7 +476,7 @@ module.exports = [
       {trait_type:"Nose",value:"Black"},
       {trait_type:"Eyewear",value:"Black Rectangular Shades"},
       {trait_type:"Outfit",value:"Black Leather Jacket"},
-      {trait_type:"Headwear",value:"Blonde Hair w/ Headphones"}
+      {trait_type:"Headwear",value:"Blonde Hair"}
     ],
   },
   {
@@ -488,7 +488,7 @@ module.exports = [
       {trait_type:"Fur",value:"White"},
       {trait_type:"Face",value:"Eyelashes"},
       {trait_type:"Nose",value:"Black"},
-      {trait_type:"Eyewear",value:"Purple Heart Shades"},
+      {trait_type:"Eyewear",value:"Blue Heart Shades"},
       {trait_type:"Outfit",value:"Purple Off-shoulder Dress"},
       {trait_type:"Headwear",value:"Floral Unicorn Horn"}
     ],

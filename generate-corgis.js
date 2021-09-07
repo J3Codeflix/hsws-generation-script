@@ -18,7 +18,7 @@ const outputTiers = "./outputs/tiers.json";
 const totalTiers = "./outputs/total-tiers.json";
 const sup = "./outputs/sup.json";
 
-const desiredCount = 10;
+const desiredCount = 2000;
 
 const ext = ".png";
 
