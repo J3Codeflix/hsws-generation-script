@@ -1,7 +1,7 @@
 module.exports = [
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Cyborg"},
@@ -18,7 +18,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Golden Knight"},
@@ -35,7 +35,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Anime"},
@@ -52,7 +52,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Egyptian"},
@@ -69,7 +69,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Skeleton"},
@@ -86,7 +86,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Rockstar"},
@@ -103,7 +103,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Mystical"},
@@ -120,7 +120,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Zombie"},
@@ -137,7 +137,7 @@ module.exports = [
   },
   {
     name: '',
-    description: "SUPER RARE A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
+    description: "SUPER RARE. A DIAMOND IN THE RUFF. Well, well, well! You might as well call yourself a lottery winner cause you just found yourself a Super Rare Corgi! The 1/1 collection. Less than 0.1% of all Corgis fall into this category. If you have one of these, you are one of the chosen.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Special Cyberpunk"},

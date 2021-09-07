@@ -1,7 +1,7 @@
 module.exports = [
   {
     name: `Approving Corgis #0`,
-    description: "APPROVING PAWS UP & TONGUE’S OUT! An Approving Corgi has just come your way!!! The most numerous (and adorable!) of all the Corgis are, of course, the Approving Corgis! These Corgis comprise 65% of all Corgis and share a variety of characteristics and traits that you’d expect from an approving pet: smiling, laughing, whistling, happy-go-lucky type.", 
+    description: "APPROVING. PAWS UP & TONGUE’S OUT! An Approving Corgi has just come your way!!! The most numerous (and adorable!) of all the Corgis are, of course, the Approving Corgis! These Corgis comprise 65% of all Corgis and share a variety of characteristics and traits that you’d expect from an approving pet: smiling, laughing, whistling, happy-go-lucky type.", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Cyan"},
@@ -13,7 +13,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #1`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Beige"},
@@ -25,7 +25,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #2`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Gray"},
@@ -39,7 +39,7 @@ module.exports = [
   },  
   {
     name: `Approving Corgis #3`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Yellow"},
@@ -53,7 +53,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #4`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Purple"},
@@ -65,7 +65,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #5`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Blue"},
@@ -76,7 +76,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #6`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Blue"},
@@ -88,7 +88,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #7`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Cyan"},
@@ -102,7 +102,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #8`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Purple"},
@@ -116,7 +116,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #9`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Beige"},
@@ -129,7 +129,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #10`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Yellow"},
@@ -143,7 +143,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #11`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Gray"},
@@ -156,7 +156,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #12`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Cyan"},
@@ -169,7 +169,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #13`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Blue"},
@@ -183,7 +183,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #14`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Violet"},
@@ -196,7 +196,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #15`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Peach"},
@@ -209,7 +209,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #16`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Cyan"},
@@ -221,7 +221,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #17`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Yellow"},
@@ -233,7 +233,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #18`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Biege"},
@@ -246,7 +246,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #19`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Purple"},
@@ -259,7 +259,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #20`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Yellow"},
@@ -272,7 +272,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #21`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Gray"},
@@ -285,7 +285,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #22`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Purple"},
@@ -298,7 +298,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #23`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Green"},
@@ -312,7 +312,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #24`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Cyan"},
@@ -325,7 +325,7 @@ module.exports = [
   }, 
   {
     name: `Approving Corgis #25`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Blue"},
@@ -339,7 +339,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #26`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Gray"},
@@ -353,7 +353,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #27`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Peach"},
@@ -366,7 +366,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #28`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Pink"},
@@ -379,7 +379,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #29`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Purple"},
@@ -392,7 +392,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #30`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Cyan"},
@@ -404,7 +404,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #31`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Gray"},
@@ -417,7 +417,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #32`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Gray"},
@@ -431,7 +431,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #33`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Green"},
@@ -443,7 +443,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #34`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Caramel"},
@@ -456,7 +456,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #35`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Violet"},
@@ -467,7 +467,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #36`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Pink"},
@@ -481,7 +481,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #37`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Violet"},
@@ -495,7 +495,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #38`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Cyan"},
@@ -508,7 +508,7 @@ module.exports = [
   },
   {
     name: `Approving Corgis #39`,
-    description: "RARE HUSH, CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
+    description: "RARE HUSH. CAN YOU KEEP A SECRET? A Rare Corgi has presented itself to you! Rare Corgis make up only 4.91% of the entire Corgi population and include custom Corgis that are more unique and contain a set of traits exclusively made for them!", 
     image: '',
     attributes: [
       {trait_type:"Background",value:"Green"},
