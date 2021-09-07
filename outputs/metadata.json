@@ -5,35 +5,35 @@
     "attributes": [
       {
         "trait_type": "Background",
-        "value": "Purple"
+        "value": "Green"
       },
       {
         "trait_type": "Fur",
-        "value": "Orange"
+        "value": "Pink"
       },
       {
         "trait_type": "Face",
-        "value": "Laughing"
+        "value": "Tongue-Out"
       },
       {
         "trait_type": "Nose",
-        "value": "Dark Brown"
+        "value": "Light Brown"
       },
       {
         "trait_type": "Ear Accessory",
-        "value": "Stud Silver Piercing"
+        "value": "Hoop Gold Piercing"
       },
       {
         "trait_type": "Eyewear",
-        "value": "Reading Eyeglasses"
+        "value": "Clear Cat-Eye Shades"
       },
       {
         "trait_type": "Headwear",
-        "value": "Sakkat Hat"
+        "value": "Newsboy Hat"
       },
       {
         "trait_type": "Outfit",
-        "value": "Camouflage w/ Silver Dog Tag"
+        "value": "Mummy Tape"
       },
       {
         "trait_type": "Chromosome",
@@ -51,35 +51,35 @@
     "attributes": [
       {
         "trait_type": "Background",
-        "value": "Yellow"
+        "value": "Peach"
       },
       {
         "trait_type": "Fur",
-        "value": "Chocolate"
+        "value": "Maroon"
       },
       {
         "trait_type": "Face",
-        "value": "Raised Eyebrow"
+        "value": "Awkward"
       },
       {
         "trait_type": "Nose",
-        "value": "Black"
-      },
-      {
-        "trait_type": "Ear Accessory",
         "value": "Hoop Silver Piercing"
       },
       {
+        "trait_type": "Ear Accessory",
+        "value": "Diamond Earring"
+      },
+      {
         "trait_type": "Eyewear",
-        "value": "3D Glasses"
+        "value": "Pink Goggles"
       },
       {
         "trait_type": "Headwear",
-        "value": "Nerdy Hair"
+        "value": "Alpine Hat"
       },
       {
         "trait_type": "Outfit",
-        "value": "Gray Round Neck Shirt"
+        "value": "Yellow Varsity Jacket"
       },
       {
         "trait_type": "Chromosome",
@@ -97,35 +97,35 @@
     "attributes": [
       {
         "trait_type": "Background",
-        "value": "Blue"
+        "value": "Green"
       },
       {
         "trait_type": "Fur",
-        "value": "Grey"
+        "value": "Chocolate"
       },
       {
         "trait_type": "Face",
-        "value": "Mustache"
+        "value": "Wink"
       },
       {
         "trait_type": "Nose",
-        "value": "Light Brown"
+        "value": "Black"
       },
       {
         "trait_type": "Ear Accessory",
-        "value": "Stud Gold Piercing"
+        "value": "Hoop Silver Piercing"
       },
       {
         "trait_type": "Eyewear",
-        "value": "Blue Heart Shades"
+        "value": "Blue-Green Goggles"
       },
       {
         "trait_type": "Headwear",
-        "value": "Bitcoin Cap"
+        "value": "Black Visor"
       },
       {
         "trait_type": "Outfit",
-        "value": "K9 Vest"
+        "value": "blue Sleeveless Shirt"
       },
       {
         "trait_type": "Chromosome",
@@ -139,7 +139,7 @@
   },
   {
     "name": "Approving Corgis #3",
-    "description": "APPROVING PAWS UP & TONGUE’S OUT! An Approving Corgi has just come your way!!! The most numerous (and adorable!) of all the Corgis are, of course, the Approving Corgis! These Corgis comprise 65% of all Corgis and share a variety of characteristics and traits that you’d expect from an approving pet: smiling, laughing, whistling, happy-go-lucky type.",
+    "description": "DISAPPROVING RUFF DAY? A Disapproving Corgi in need of some belly rubs is waiting for your precious attention! The next largest group is the Disapproving Corgis. There are bad apples in every bunch and that’s the case here. Disapproving Corgis make up 30% of all Corgis and share common characteristics. They're the eye-rolling, cigarette-smoking, angry type.",
     "attributes": [
       {
         "trait_type": "Background",
@@ -147,27 +147,31 @@
       },
       {
         "trait_type": "Fur",
-        "value": "Fawn"
+        "value": "Jaguar"
       },
       {
         "trait_type": "Face",
-        "value": "Eye Shadow"
+        "value": "Angry"
       },
       {
         "trait_type": "Nose",
-        "value": "Black"
+        "value": "Hoop Silver Piercing"
+      },
+      {
+        "trait_type": "Ear Accessory",
+        "value": "Hoop Silver Piercing"
       },
       {
         "trait_type": "Eyewear",
-        "value": "Pink Goggles"
+        "value": "Cyan Rounded Shades"
       },
       {
         "trait_type": "Headwear",
-        "value": "Green Apple"
+        "value": "Propeller Hat"
       },
       {
         "trait_type": "Outfit",
-        "value": "Black Shirt Stripe w/ Dog Tag"
+        "value": "White Sleeveless Shirt"
       },
       {
         "trait_type": "Chromosome",
@@ -175,17 +179,17 @@
       },
       {
         "trait_type": "Tier",
-        "value": "Approving"
+        "value": "Disapproving"
       }
     ]
   },
   {
     "name": "Approving Corgis #4",
-    "description": "APPROVING PAWS UP & TONGUE’S OUT! An Approving Corgi has just come your way!!! The most numerous (and adorable!) of all the Corgis are, of course, the Approving Corgis! These Corgis comprise 65% of all Corgis and share a variety of characteristics and traits that you’d expect from an approving pet: smiling, laughing, whistling, happy-go-lucky type.",
+    "description": "DISAPPROVING RUFF DAY? A Disapproving Corgi in need of some belly rubs is waiting for your precious attention! The next largest group is the Disapproving Corgis. There are bad apples in every bunch and that’s the case here. Disapproving Corgis make up 30% of all Corgis and share common characteristics. They're the eye-rolling, cigarette-smoking, angry type.",
     "attributes": [
       {
         "trait_type": "Background",
-        "value": "Green"
+        "value": "Peach"
       },
       {
         "trait_type": "Fur",
@@ -193,41 +197,37 @@
       },
       {
         "trait_type": "Face",
-        "value": "Tongue-Out"
+        "value": "Raised Eyebrow"
       },
       {
         "trait_type": "Nose",
-        "value": "Flesh"
-      },
-      {
-        "trait_type": "Ear Accessory",
-        "value": "Hoop Gold Piercing"
+        "value": "Hoop Silver Piercing"
       },
       {
         "trait_type": "Eyewear",
-        "value": "Blue Heart Shades"
+        "value": "Blue-Green Goggles"
       },
       {
         "trait_type": "Headwear",
-        "value": "Hardhat"
+        "value": "Brown Brush Up Hair"
       },
       {
         "trait_type": "Outfit",
-        "value": "Navy Blue Bow Tie"
+        "value": "Gray Round Neck Shirt"
       },
       {
         "trait_type": "Chromosome",
-        "value": "Y"
+        "value": "X"
       },
       {
         "trait_type": "Tier",
-        "value": "Approving"
+        "value": "Disapproving"
       }
     ]
   },
   {
     "name": "Approving Corgis #5",
-    "description": "APPROVING PAWS UP & TONGUE’S OUT! An Approving Corgi has just come your way!!! The most numerous (and adorable!) of all the Corgis are, of course, the Approving Corgis! These Corgis comprise 65% of all Corgis and share a variety of characteristics and traits that you’d expect from an approving pet: smiling, laughing, whistling, happy-go-lucky type.",
+    "description": "DISAPPROVING RUFF DAY? A Disapproving Corgi in need of some belly rubs is waiting for your precious attention! The next largest group is the Disapproving Corgis. There are bad apples in every bunch and that’s the case here. Disapproving Corgis make up 30% of all Corgis and share common characteristics. They're the eye-rolling, cigarette-smoking, angry type.",
     "attributes": [
       {
         "trait_type": "Background",
@@ -235,39 +235,39 @@
       },
       {
         "trait_type": "Fur",
-        "value": "Pink"
+        "value": "Chocolate"
       },
       {
         "trait_type": "Face",
-        "value": "Eyelashes"
+        "value": "Straight Face"
       },
       {
         "trait_type": "Nose",
-        "value": "Flesh"
+        "value": "Black"
       },
       {
         "trait_type": "Ear Accessory",
-        "value": "Stud Silver Piercing"
+        "value": "Double Stud Gold Piercing"
       },
       {
         "trait_type": "Eyewear",
-        "value": "Blue Heart Shades"
+        "value": "Pink Rectangular Shades"
       },
       {
         "trait_type": "Headwear",
-        "value": "Red Apple"
+        "value": "Fedora Hat"
       },
       {
         "trait_type": "Outfit",
-        "value": "Peach Cardigan"
+        "value": "Hawaiian Lei"
       },
       {
         "trait_type": "Chromosome",
-        "value": "Y"
+        "value": "X"
       },
       {
         "trait_type": "Tier",
-        "value": "Approving"
+        "value": "Disapproving"
       }
     ]
   },
@@ -277,7 +277,7 @@
     "attributes": [
       {
         "trait_type": "Background",
-        "value": "Blue"
+        "value": "Gray"
       },
       {
         "trait_type": "Fur",
@@ -285,27 +285,27 @@
       },
       {
         "trait_type": "Face",
-        "value": "Happy"
+        "value": "Relieved"
       },
       {
         "trait_type": "Nose",
-        "value": "Black"
+        "value": "Light Brown"
       },
       {
         "trait_type": "Ear Accessory",
-        "value": "Stud Gold Piercing"
+        "value": "Hoop Gold Piercing"
       },
       {
         "trait_type": "Eyewear",
-        "value": "Purple Heart Shades"
+        "value": "Sports Sunglasses"
       },
       {
         "trait_type": "Headwear",
-        "value": "Sakkat Hat"
+        "value": "Reindeer Headband"
       },
       {
         "trait_type": "Outfit",
-        "value": "White Ethereum Shirt"
+        "value": "Black Ethereum Shirt"
       },
       {
         "trait_type": "Chromosome",
@@ -323,35 +323,35 @@
     "attributes": [
       {
         "trait_type": "Background",
-        "value": "Pink"
+        "value": "Violet"
       },
       {
         "trait_type": "Fur",
-        "value": "Red"
+        "value": "Grey"
       },
       {
         "trait_type": "Face",
-        "value": "Drool"
+        "value": "Wink"
       },
       {
         "trait_type": "Nose",
-        "value": "Dark Brown"
+        "value": "Light Brown"
       },
       {
         "trait_type": "Ear Accessory",
-        "value": "Double Silver Piercing"
+        "value": "Stud Silver Piercing"
       },
       {
         "trait_type": "Eyewear",
-        "value": "Blue Cyclops"
+        "value": "Blue Heart Shades"
       },
       {
         "trait_type": "Headwear",
-        "value": "Nerdy Hair"
+        "value": "Miner Helmet"
       },
       {
         "trait_type": "Outfit",
-        "value": "Red Sweater"
+        "value": "Fang Necklace"
       },
       {
         "trait_type": "Chromosome",
@@ -365,11 +365,11 @@
   },
   {
     "name": "Approving Corgis #8",
-    "description": "APPROVING PAWS UP & TONGUE’S OUT! An Approving Corgi has just come your way!!! The most numerous (and adorable!) of all the Corgis are, of course, the Approving Corgis! These Corgis comprise 65% of all Corgis and share a variety of characteristics and traits that you’d expect from an approving pet: smiling, laughing, whistling, happy-go-lucky type.",
+    "description": "DISAPPROVING RUFF DAY? A Disapproving Corgi in need of some belly rubs is waiting for your precious attention! The next largest group is the Disapproving Corgis. There are bad apples in every bunch and that’s the case here. Disapproving Corgis make up 30% of all Corgis and share common characteristics. They're the eye-rolling, cigarette-smoking, angry type.",
     "attributes": [
       {
         "trait_type": "Background",
-        "value": "Violet"
+        "value": "Yellow"
       },
       {
         "trait_type": "Fur",
@@ -377,49 +377,7 @@
       },
       {
         "trait_type": "Face",
-        "value": "Laughing"
-      },
-      {
-        "trait_type": "Nose",
-        "value": "Light Brown"
-      },
-      {
-        "trait_type": "Ear Accessory",
-        "value": "Hoop Gold Piercing"
-      },
-      {
-        "trait_type": "Headwear",
-        "value": "Slouch Hat"
-      },
-      {
-        "trait_type": "Outfit",
-        "value": "Red Checkered Scarf"
-      },
-      {
-        "trait_type": "Chromosome",
-        "value": "Y"
-      },
-      {
-        "trait_type": "Tier",
-        "value": "Approving"
-      }
-    ]
-  },
-  {
-    "name": "Approving Corgis #9",
-    "description": "APPROVING PAWS UP & TONGUE’S OUT! An Approving Corgi has just come your way!!! The most numerous (and adorable!) of all the Corgis are, of course, the Approving Corgis! These Corgis comprise 65% of all Corgis and share a variety of characteristics and traits that you’d expect from an approving pet: smiling, laughing, whistling, happy-go-lucky type.",
-    "attributes": [
-      {
-        "trait_type": "Background",
-        "value": "Purple"
-      },
-      {
-        "trait_type": "Fur",
-        "value": "Chocolate"
-      },
-      {
-        "trait_type": "Face",
-        "value": "Hungry"
+        "value": "Awkward"
       },
       {
         "trait_type": "Nose",
@@ -427,15 +385,61 @@
       },
       {
         "trait_type": "Ear Accessory",
-        "value": "Double Silver Piercing"
+        "value": "Stud Gold Piercing"
       },
       {
         "trait_type": "Headwear",
-        "value": "Blue Pirate Hat"
+        "value": "Wizard Hat"
       },
       {
         "trait_type": "Outfit",
-        "value": "Blue Pirate"
+        "value": "Wizard"
+      },
+      {
+        "trait_type": "Chromosome",
+        "value": "X"
+      },
+      {
+        "trait_type": "Tier",
+        "value": "Disapproving"
+      }
+    ]
+  },
+  {
+    "name": "Approving Corgis #9",
+    "description": "DISAPPROVING RUFF DAY? A Disapproving Corgi in need of some belly rubs is waiting for your precious attention! The next largest group is the Disapproving Corgis. There are bad apples in every bunch and that’s the case here. Disapproving Corgis make up 30% of all Corgis and share common characteristics. They're the eye-rolling, cigarette-smoking, angry type.",
+    "attributes": [
+      {
+        "trait_type": "Background",
+        "value": "Gray"
+      },
+      {
+        "trait_type": "Fur",
+        "value": "Sable"
+      },
+      {
+        "trait_type": "Face",
+        "value": "Straight Face"
+      },
+      {
+        "trait_type": "Nose",
+        "value": "Pink"
+      },
+      {
+        "trait_type": "Ear Accessory",
+        "value": "Stud Gold Piercing"
+      },
+      {
+        "trait_type": "Eyewear",
+        "value": "Blue Cyclops"
+      },
+      {
+        "trait_type": "Headwear",
+        "value": "Bowler Hat"
+      },
+      {
+        "trait_type": "Outfit",
+        "value": "Gray Round Neck Shirt"
       },
       {
         "trait_type": "Chromosome",
@@ -443,7 +447,7 @@
       },
       {
         "trait_type": "Tier",
-        "value": "Approving"
+        "value": "Disapproving"
       }
     ]
   }

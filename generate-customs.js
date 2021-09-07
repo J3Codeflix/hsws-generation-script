@@ -8,7 +8,7 @@ const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_API_SECR
 const outputFolder = "./customs";
 const outputCharacterJSON = "./outputs/customs.json";
 
-const desiredCount = 3;
+const desiredCount = 40;
 
 const ext = ".png";
 
