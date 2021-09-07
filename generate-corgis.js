@@ -5,22 +5,25 @@ const approvingParts = require('./parts-approving')
 const disapprovingParts = require('./parts-disapproving')
 const rareParts = require('./parts-rare')
 const descriptions = require('./descriptions');
+const customSuperRare = require('./custom-super-rare');
 
 const pinataSDK = require('@pinata/sdk');
 const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_API_SECRET);
 
+const inputSupFolder = "./super-rares";
 const outputFolder = "./generated-corgis";
 const outputCharacterJSON = "./outputs/metadata.json";
 const outputAttributes = "./outputs/attributes.json";
 const outputTiers = "./outputs/tiers.json";
 const totalTiers = "./outputs/total-tiers.json";
+const sup = "./outputs/sup.json";
 
-const desiredCount = 30;
+const desiredCount = 10;
 
 const ext = ".png";
 
-const uploadToPinata = true;
-const isLive = false;
+const uploadToPinata = false;
+const includeRares = false;
 
 let characters = [];
   // Save attributes and generate map of attributes to saved array index
@@ -40,6 +43,7 @@ const tiersWeight = [65, 30, 4];
 const totalWeight = 99;
 
 let weightedTiers;
+let supArray = [];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -83,9 +87,23 @@ async function saveFaceByCode(codeArr, outFile) {
 
     images.push(img);
   });
+
+  if(codeArr[0].tier === 'disapproving' && codeArr[7].code === 15) {
+    console.log('Hit space suit????? =====>>>>')
+    const newImages = await swapArrayElements(images, 6, 7);
+    await mergeImagesToPng(newImages, outFile);
+  } else {
+    await mergeImagesToPng(images, outFile);
+  }
   // Generate image
-  await mergeImagesToPng(images, outFile);
 }
+
+async function swapArrayElements(arr, indexA, indexB) {
+  var temp = arr[indexA];
+  arr[indexA] = arr[indexB];
+  arr[indexB] = temp;
+  return arr;
+};
 
 async function generateTiers() {
    
@@ -196,31 +214,86 @@ async function generateMetadata(imgCount, codeArr, imgPin) {
       let attrName = approvingParts[_index].attrNames[codeAr.code];
       attrArray.find(attr => attr.attribute === attrName).count+=1;
       if(approvingParts[_index].attrNames[codeAr.code] !== ''){
-        c.attributes.push({trait_type: approvingParts[_index].name.split('/')[1], value: approvingParts[_index].attrNames[codeAr.code]});
+        const type = approvingParts[_index].name.split('/')[1];
+        if(type === 'Earaccessory') {
+          c.attributes.push({trait_type: 'Ear Accessory', value: approvingParts[_index].attrNames[codeAr.code]});
+        } else {
+          c.attributes.push({trait_type: approvingParts[_index].name.split('/')[1], value: approvingParts[_index].attrNames[codeAr.code]});
+        }
       }
     } else if(codeAr.tier === 'disapproving') {
       tierCount.disapproving+=1;
       let attrName = disapprovingParts[_index].attrNames[codeAr.code];
       attrArray.find(attr => attr.attribute === attrName).count+=1;
       if(disapprovingParts[_index].attrNames[codeAr.code] !== ''){ 
-        c.attributes.push({trait_type: disapprovingParts[_index].name.split('/')[1], value: disapprovingParts[_index].attrNames[codeAr.code]});
+        const type = disapprovingParts[_index].name.split('/')[1];
+        if(type === 'Earaccessory') { 
+          c.attributes.push({trait_type: 'Ear Accessory', value: disapprovingParts[_index].attrNames[codeAr.code]});
+        } else {
+          c.attributes.push({trait_type: disapprovingParts[_index].name.split('/')[1], value: disapprovingParts[_index].attrNames[codeAr.code]});
+        }
       }
     } else {
       tierCount.rare+=1;
       let attrName = disapprovingParts[_index].attrNames[codeAr.code];
       attrArray.find(attr => attr.attribute === attrName).count+=1;
       if(rareParts[_index].attrNames[codeAr.code] !== '') {
-        c.attributes.push({trait_type: rareParts[_index].name.split('/')[1], value: rareParts[_index].attrNames[codeAr.code]});
+        const type = rareParts[_index].name.split('/')[1]
+        if(type === 'Earaccessory') { 
+          c.attributes.push({trait_type: 'Ear Accessory', value: rareParts[_index].attrNames[codeAr.code]});
+        } else {
+          c.attributes.push({trait_type: rareParts[_index].name.split('/')[1], value: rareParts[_index].attrNames[codeAr.code]});
+        }
       }
     }
   });
 
+  const chrome = generateRandomNumber(0, 9);
+  if(chrome < 5) {
+    c.attributes.push({trait_type: 'Chromosome', value: 'X'});
+  } else {
+    c.attributes.push({trait_type: 'Chromosome', value: 'Y'});
+  }
+
   c.attributes.push({trait_type: 'Tier', value: codeArr[2].tier.charAt(0).toUpperCase() + codeArr[2].tier.slice(1)});
 
   const tier = codeArr[0].tier;
-  c.description = descriptions.find(desc => desc.tier === tier);
+  c.description = descriptions.find(desc => desc.tier === tier).description;
   
   return c;
+}
+
+const generateSuperRareArray = async () => {
+  for (let index = 0; index < 9; index++) {
+    if(index === 0) {
+      const randomNumber = generateRandomNumber(101, 999);
+      supArray.push(randomNumber);
+    } else if(index === 1) {
+      const randomNumber = generateRandomNumber(1000, 1999);
+      supArray.push(randomNumber);
+    } else if(index === 2) {
+      const randomNumber = generateRandomNumber(2000, 2999);
+      supArray.push(randomNumber);
+    } else if(index === 3) {
+      const randomNumber = generateRandomNumber(3000, 3999);
+      supArray.push(randomNumber);
+    } else if(index === 4) {
+      const randomNumber = generateRandomNumber(4000, 4999);
+      supArray.push(randomNumber);
+    } else if(index === 5) {
+      const randomNumber = generateRandomNumber(5000, 5999);
+      supArray.push(randomNumber);
+    } else if(index === 6) {
+      const randomNumber = generateRandomNumber(6000, 7999);
+      supArray.push(randomNumber);
+    } else if(index === 7) {
+      const randomNumber = generateRandomNumber(8000, 8999);
+      supArray.push(randomNumber);
+    } else if(index === 8) {
+      const randomNumber = generateRandomNumber(9000, 9999);
+      supArray.push(randomNumber);
+    }
+  }
 }
 
 async function generateCorgis() {
@@ -228,8 +301,12 @@ async function generateCorgis() {
   weightedTiers = await generateTiers();
   // Array that lists all characters
   await createAttributesCount();
+  await generateSuperRareArray();
+  
+  console.log("🚀 ~ file: generate-corgis.js ~ line 306 ~ generateCorgis ~ supArray", supArray)
 
   let imgCount = 0;
+  let supIndex = 0;
   let excludedRareFace = [0,1,5,6];
   let excludedRareOutfit = [1,3,9,13];
   let excludedDisapprovingOutfits = [11,13, 14, 15];
@@ -239,134 +316,187 @@ async function generateCorgis() {
     codeArr = [];
     let outfit = 0;
     let noEyewear = false;
-    // generate code array per tiers
-    const randomTier = await getRandomInt(totalWeight);
-    const tier = weightedTiers[randomTier];
-    // const tier = 'rare';
-    approvingCorgiTiers[tier]+=1;
-    for (let i=0; i < 8; i++) {
-      if(tier === 'approving'){
-        let random = generateRandomNumber(0, approvingParts[i].count - 1);
-        
-        if(i === 6) {
-          outfit = getPair(random, tier);
-          codeArr.push({ tier: tier, code: random});
-          if(random === 6) {
-            codeArr[5].code = 0;
-          }
 
-          if(random === 14) {
-            const chance = generateRandomNumber(0, 1);
-            if(chance === 0) {
-              codeArr[5].code = 0;
-            }else{
-              codeArr[5].code =16;
-            }
-          }
-
-        } else if(i === 7) {
-          if(outfit === -1) {
-            random = generateRandomNumber(23, approvingParts[7].count - 1);
-            codeArr.push({ tier: tier, code: random});
-          } else {
-            codeArr.push({ tier: tier, code: outfit});
-          }
-        } else {
-          codeArr.push({ tier: tier, code: random});
-        }
-      } else if(tier === 'disapproving'){
-        let random = generateRandomNumber(0, disapprovingParts[i].count - 1);
-        
-        if(i === 6) {
-          outfit = getPair(random, tier);
-          codeArr.push({ tier: tier, code: random});
-          if(random === 1) {
-            const chance = generateRandomNumber(0, 1);
-            if(chance === 0) {
-              codeArr[5].code = 0;
-            }else{
-              codeArr[5].code =16;
-            }
-          }
-          if(random === 3){
-            codeArr[5].code = 0;
-          }
-          if(excludedDisapprovingOutfits.includes(random)) {
-            let newFace;
-            do {
-              newFace = generateRandomNumber(0, rareParts[2].count - 1);
-            } while (excludedDisapprovingFaces.includes(newFace));
-            codeArr[2].code = newFace;
-          }
-        } else if(i === 7) {
-          if(outfit === -1) {
-            random = generateRandomNumber(40, disapprovingParts[7].count - 1);
-            codeArr.push({ tier: tier, code: random});
-          } else {
-            codeArr.push({ tier: tier, code: outfit});
-          }
-        } else {
-          codeArr.push({ tier: tier, code: random});
-        }
+    if(supArray.includes(imgCount)) {
+      // upload to IPFS
+      
+      // upload to IPFS
+      let imgPinResult;
+      if(uploadToPinata) {
+        const result = await pinata.pinFromFS(`${inputSupFolder}/super-rare${supIndex}${ext}`);
+        imgPinResult = `https://approvingcorgis.mypinata.cloud/ipfs/${result.IpfsHash}`
       } else {
-        let random = generateRandomNumber(0, rareParts[i].count - 1);
+        fs.copyFile(`${inputSupFolder}/super-rare${supIndex}${ext}`,`${outputFolder}/approving-corgi${imgCount}${ext}`, 1 ,(err) =>{
+          console.log("🚀 ~ file: generate-corgis.js ~ line 290 ~ fs.copyFile ~ err", err)
+        })
+      }
+      // Add character with attributes to metadata
+      const ch = customSuperRare[supIndex];
+  
+      ch.name = `Approving Corgis #${imgCount}`;
+      ch.image = imgPinResult;
 
-        if(i === 2) {
-          if(excludedRareFace.includes(random)) {
-            noEyewear = true;
-          }
-          codeArr.push({ tier: tier, code: random});
-        } else if(i === 5) {
-          if(noEyewear) {
-            codeArr.push({ tier: tier, code: 0});
+      if(uploadToPinata) {
+        const options = {
+          pinataMetadata: {
+            name: `Approving Corgis #${imgCount}`,
+          },
+        }
+        const jsonPinResult = await pinata.pinJSONToIPFS(ch, options);
+        characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
+      } else {
+        characters.push(ch);
+      }
+      console.log(`Image approving-corgi${imgCount} saved`);
+      supIndex+=1;
+
+    } else {
+
+      // generate code array per tiers
+      const randomTier = await getRandomInt(totalWeight);
+      const tier = weightedTiers[randomTier];
+      // const tier = 'rare';
+      approvingCorgiTiers[tier]+=1;
+      for (let i=0; i < 8; i++) {
+        if(tier === 'approving'){
+          let random = generateRandomNumber(0, approvingParts[i].count - 1);
+          
+          if(i === 6) {
+            outfit = getPair(random, tier);
+            codeArr.push({ tier: tier, code: random});
+            if(random === 6) {
+              codeArr[5].code = 0;
+            }
+  
+            if(random === 14) {
+              const chance = generateRandomNumber(0, 1);
+              if(chance === 0) {
+                codeArr[5].code = 0;
+              }else{
+                codeArr[5].code =16;
+              }
+            }
+  
+            if(random === 5) {
+              codeArr[5].code = 0;
+            }
+  
+          } else if(i === 7) {
+            if(outfit === -1) {
+              random = generateRandomNumber(23, approvingParts[7].count - 1);
+              codeArr.push({ tier: tier, code: random});
+            } else {
+              codeArr.push({ tier: tier, code: outfit});
+            }
+            if(codeArr[2].code === 13 || codeArr[2].code === 16) {
+              codeArr[5].code = 0;
+            }
           } else {
             codeArr.push({ tier: tier, code: random});
           }
-        } else if (i === 6) {
-          outfit = getPair(random, tier);
-          codeArr.push({ tier: tier, code: random});
-          if(random === 5) {
-            const face = generateRandomNumber(0, 4);
-            codeArr[2].code = face;
-          }
-        } else if(i === 7) {
-          if(outfit === -1) {
-            let newOutfit
-            do {
-              newOutfit = generateRandomNumber(0, rareParts[7].count - 1);
-            } while (excludedRareOutfit.includes(newOutfit));
-            codeArr.push({ tier: tier, code: newOutfit});
+        } else if(tier === 'disapproving'){
+          let random = generateRandomNumber(0, disapprovingParts[i].count - 1);
+          
+          if(i === 6) {
+            outfit = getPair(random, tier);
+            codeArr.push({ tier: tier, code: random});
+            if(random === 1 || random === 12) {
+              const chance = generateRandomNumber(0, 1, 2);
+              if(chance === 0) {
+                codeArr[5].code = 0;
+              } else if(chance === 1) { 
+                codeArr[5].code = 19;
+              }else{
+                codeArr[5].code = 20;
+              }
+            }
+            if(random === 3){
+              codeArr[5].code = 0;
+            }
+            if(excludedDisapprovingOutfits.includes(random)) {
+              let newFace;
+              do {
+                newFace = generateRandomNumber(0, rareParts[2].count - 1);
+              } while (excludedDisapprovingFaces.includes(newFace));
+              codeArr[2].code = newFace;
+            }
+          } else if(i === 7) {
+            if(outfit === -1) {
+              random = generateRandomNumber(40, disapprovingParts[7].count - 1);
+              codeArr.push({ tier: tier, code: random});
+            } else {
+              codeArr.push({ tier: tier, code: outfit});
+            }
           } else {
-            codeArr.push({ tier: tier, code: outfit});
+            codeArr.push({ tier: tier, code: random});
           }
         } else {
-          codeArr.push({ tier: tier, code: random});
+          let random = generateRandomNumber(0, rareParts[i].count - 1);
+  
+          if(i === 2) {
+            if(excludedRareFace.includes(random)) {
+              noEyewear = true;
+            }
+            codeArr.push({ tier: tier, code: random});
+          } else if(i === 5) {
+            if(noEyewear) {
+              codeArr.push({ tier: tier, code: 0});
+            } else {
+              codeArr.push({ tier: tier, code: random});
+            }
+          } else if (i === 6) {
+            outfit = getPair(random, tier);
+            codeArr.push({ tier: tier, code: random});
+            if(random === 5) {
+              const face = generateRandomNumber(0, 2);
+              codeArr[2].code = face;
+            }
+          } else if(i === 7) {
+            if(outfit === -1) {
+              let newOutfit
+              do {
+                newOutfit = generateRandomNumber(0, rareParts[7].count - 1);
+              } while (excludedRareOutfit.includes(newOutfit));
+              codeArr.push({ tier: tier, code: newOutfit});
+            } else {
+              if(outfit === 9 || outfit === 3) {
+                console.log('is Dragooooooon or pressure suit')
+                const face = generateRandomNumber(0, 2);
+                codeArr[2].code = face;
+                codeArr[5].code = 0;
+              }
+              codeArr.push({ tier: tier, code: outfit});
+            }
+          } else {
+            codeArr.push({ tier: tier, code: random});
+          }
         }
       }
-    }
-    // generate image
-    await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
-
-    // upload to IPFS
-    let imgPinResult;
-    if(uploadToPinata) {
-      const result = await pinata.pinFromFS(`${outputFolder}/approving-corgi${imgCount}${ext}`);
-      imgPinResult = `https://approvingcorgis.mypinata.cloud/ipfs/${result.IpfsHash}`
-    }
-    // Add character with attributes to metadata
-    const ch = await generateMetadata(imgCount, codeArr, imgPinResult);
-
-    if(uploadToPinata) {
-      const options = {
-        pinataMetadata: {
-          name: `Approving Corgis #${imgCount}`,
-        },
+      // generate image
+      await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
+  
+      // upload to IPFS
+      let imgPinResult;
+      if(uploadToPinata) {
+        const result = await pinata.pinFromFS(`${outputFolder}/approving-corgi${imgCount}${ext}`);
+        imgPinResult = `https://approvingcorgis.mypinata.cloud/ipfs/${result.IpfsHash}`
       }
-      const jsonPinResult = await pinata.pinJSONToIPFS(ch, options);
-      characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
-    } else {
-      characters.push(ch);
+      // Add character with attributes to metadata
+      const ch = await generateMetadata(imgCount, codeArr, imgPinResult);
+  
+      if(uploadToPinata) {
+        const options = {
+          pinataMetadata: {
+            name: `Approving Corgis #${imgCount}`,
+          },
+        }
+        const jsonPinResult = await pinata.pinJSONToIPFS(ch, options);
+        characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
+      } else {
+        characters.push(ch);
+      }
     }
+
     imgCount++;
     
   }
@@ -375,6 +505,7 @@ async function generateCorgis() {
   fs.writeFileSync(outputAttributes, JSON.stringify(attrArray, null, 2));
   fs.writeFileSync(outputTiers, JSON.stringify(tiersArray, null, 2));
   fs.writeFileSync(totalTiers, JSON.stringify(approvingCorgiTiers, null, 2));
+  fs.writeFileSync(sup, JSON.stringify(supArray, null, 2));
 }
 
 async function main() {

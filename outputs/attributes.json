@@ -1,19 +1,19 @@
 [
   {
     "attribute": "Cyan",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Peach",
-    "count": 3
+    "count": 0
   },
   {
     "attribute": "Yellow",
-    "count": 2
+    "count": 1
   },
   {
     "attribute": "Green",
-    "count": 2
+    "count": 1
   },
   {
     "attribute": "Blue",
@@ -21,11 +21,11 @@
   },
   {
     "attribute": "Violet",
-    "count": 5
+    "count": 1
   },
   {
     "attribute": "Pink",
-    "count": 8
+    "count": 2
   },
   {
     "attribute": "Purple",
@@ -33,11 +33,11 @@
   },
   {
     "attribute": "Caramel",
-    "count": 5
+    "count": 0
   },
   {
     "attribute": "Gray",
-    "count": 3
+    "count": 0
   },
   {
     "attribute": "Beige",
@@ -45,15 +45,15 @@
   },
   {
     "attribute": "Fawn",
-    "count": 5
+    "count": 1
   },
   {
     "attribute": "Orange",
-    "count": 4
+    "count": 2
   },
   {
     "attribute": "Red",
-    "count": 1
+    "count": 3
   },
   {
     "attribute": "Pink",
@@ -61,23 +61,23 @@
   },
   {
     "attribute": "Chocolate",
-    "count": 3
+    "count": 2
   },
   {
     "attribute": "Grey",
-    "count": 5
+    "count": 1
   },
   {
     "attribute": "Maroon",
-    "count": 3
+    "count": 0
   },
   {
     "attribute": "Smiling",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Happy",
-    "count": 2
+    "count": 1
   },
   {
     "attribute": "Sleeping",
@@ -85,11 +85,11 @@
   },
   {
     "attribute": "Kissing",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Laughing",
-    "count": 1
+    "count": 2
   },
   {
     "attribute": "Whistling",
@@ -97,7 +97,7 @@
   },
   {
     "attribute": "Crazy",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Hungry",
@@ -105,23 +105,23 @@
   },
   {
     "attribute": "Eyelashes",
-    "count": 0
-  },
-  {
-    "attribute": "Tongue-Out",
-    "count": 2
-  },
-  {
-    "attribute": "Mustache",
-    "count": 0
-  },
-  {
-    "attribute": "Lipstick",
     "count": 1
   },
   {
+    "attribute": "Tongue-Out",
+    "count": 1
+  },
+  {
+    "attribute": "Mustache",
+    "count": 1
+  },
+  {
+    "attribute": "Lipstick",
+    "count": 0
+  },
+  {
     "attribute": "Drool",
-    "count": 2
+    "count": 1
   },
   {
     "attribute": "Star Eyes",
@@ -129,11 +129,11 @@
   },
   {
     "attribute": "Wink",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Relieved",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Heart Eyes",
@@ -141,7 +141,7 @@
   },
   {
     "attribute": "Eye Shadow",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Pacifier",
@@ -149,11 +149,11 @@
   },
   {
     "attribute": "Bubble Gum",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Puppy Eyes",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Tongue Out w/ Piercing",
@@ -161,19 +161,19 @@
   },
   {
     "attribute": "Black",
-    "count": 6
+    "count": 4
   },
   {
     "attribute": "Dark Brown",
-    "count": 6
+    "count": 2
   },
   {
     "attribute": "Light Brown",
-    "count": 7
+    "count": 2
   },
   {
     "attribute": "Flesh",
-    "count": 7
+    "count": 2
   },
   {
     "attribute": "Pink",
@@ -181,35 +181,35 @@
   },
   {
     "attribute": "",
-    "count": 7
+    "count": 3
   },
   {
     "attribute": "Stud Gold Piercing",
-    "count": 1
+    "count": 2
   },
   {
     "attribute": "Hoop Gold Piercing",
-    "count": 4
+    "count": 2
   },
   {
     "attribute": "Stud Silver Piercing",
-    "count": 6
+    "count": 2
   },
   {
     "attribute": "Hoop Silver Piercing",
-    "count": 3
+    "count": 1
   },
   {
     "attribute": "Double Stud Gold Piercing",
-    "count": 4
+    "count": 0
   },
   {
     "attribute": "Triple Stud Gold Earring",
-    "count": 5
+    "count": 0
   },
   {
     "attribute": "Double Silver Piercing",
-    "count": 3
+    "count": 2
   },
   {
     "attribute": "Triple Silver Earring",
@@ -225,7 +225,7 @@
   },
   {
     "attribute": "Black Rectangular Shades",
-    "count": 4
+    "count": 0
   },
   {
     "attribute": "Pink Rectangular Shades",
@@ -237,7 +237,7 @@
   },
   {
     "attribute": "Clear Cat-Eye Shades",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Blue-Green Goggles",
@@ -249,23 +249,23 @@
   },
   {
     "attribute": "Blue Heart Shades",
-    "count": 2
+    "count": 3
   },
   {
     "attribute": "Purple Heart Shades",
-    "count": 4
+    "count": 1
   },
   {
     "attribute": "3D Glasses",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Sports Sunglasses",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Red Cyclops",
-    "count": 3
+    "count": 0
   },
   {
     "attribute": "Blue Cyclops",
@@ -277,7 +277,7 @@
   },
   {
     "attribute": "Reading Eyeglasses",
-    "count": 4
+    "count": 1
   },
   {
     "attribute": "Eye Patch",
@@ -289,7 +289,7 @@
   },
   {
     "attribute": "Green Baseball Cap",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Brown Cowboy Hat",
@@ -321,11 +321,11 @@
   },
   {
     "attribute": "Pilot Cap",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Purple Bandana",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Pink Bandana",
@@ -361,19 +361,19 @@
   },
   {
     "attribute": "Ninja Headband",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Mario Cap",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Angel Halo",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Blue Beanie",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Red Beanie",
@@ -401,11 +401,11 @@
   },
   {
     "attribute": "Bull Horn",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Cupcake",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Red Apple",
@@ -417,7 +417,7 @@
   },
   {
     "attribute": "Trench Helmet",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Mohawk Hair",
@@ -445,7 +445,7 @@
   },
   {
     "attribute": "Trapper Hat",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Newsboy Hat",
@@ -453,11 +453,11 @@
   },
   {
     "attribute": "Propeller Hat",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Miner Helmet",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Turban",
@@ -465,11 +465,11 @@
   },
   {
     "attribute": "Sakkat Hat",
-    "count": 1
+    "count": 2
   },
   {
     "attribute": "Flat Cap",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Afro Hair",
@@ -477,7 +477,7 @@
   },
   {
     "attribute": "Nerdy Hair",
-    "count": 1
+    "count": 2
   },
   {
     "attribute": "Painter Hat",
@@ -489,7 +489,7 @@
   },
   {
     "attribute": "Melted Ice Cream",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Commie Hat",
@@ -517,11 +517,11 @@
   },
   {
     "attribute": "Brown Brush Up Hair",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Bitcoin Cap",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Fox Mask",
@@ -533,7 +533,7 @@
   },
   {
     "attribute": "Green Baseball Shirt",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Brown Cowboy Shirt",
@@ -565,7 +565,7 @@
   },
   {
     "attribute": "Pilot",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Purple Bandana",
@@ -605,15 +605,15 @@
   },
   {
     "attribute": "Ninja",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Mario",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Angel Wings",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Mummy Tape",
@@ -625,7 +625,7 @@
   },
   {
     "attribute": "Tie Dye Shirt",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Party Suit",
@@ -645,11 +645,11 @@
   },
   {
     "attribute": "K9 Vest",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "T-shirt w/ Headphone",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Jeweler",
@@ -665,7 +665,7 @@
   },
   {
     "attribute": "Fang Necklace",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Black Approving Corgi Shirts",
@@ -677,7 +677,7 @@
   },
   {
     "attribute": "Blue Hockey Jersey",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Yellow Football Jersey",
@@ -705,23 +705,23 @@
   },
   {
     "attribute": "Pink T-shirt w/ Paw Print",
-    "count": 1
-  },
-  {
-    "attribute": "Red Sweater",
     "count": 0
   },
   {
-    "attribute": "Navy Blue Necktie",
+    "attribute": "Red Sweater",
     "count": 1
+  },
+  {
+    "attribute": "Navy Blue Necktie",
+    "count": 0
   },
   {
     "attribute": "Maroon Necktie",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Blue Jumper",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Purple Jumper",
@@ -761,7 +761,7 @@
   },
   {
     "attribute": "Brown Trench Coat",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Blue Blazer Suit",
@@ -773,7 +773,7 @@
   },
   {
     "attribute": "Navy Blue Bow Tie",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Red Bow Tie",
@@ -789,11 +789,11 @@
   },
   {
     "attribute": "Peach Cardigan",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Sky Blue Jacket",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Life Vest",
@@ -801,7 +801,7 @@
   },
   {
     "attribute": "Red Checkered Scarf",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Green Checkered Scarf",
@@ -817,7 +817,7 @@
   },
   {
     "attribute": "Green Padded Armor",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Yellow V-neck w/ Bone Print",
@@ -825,7 +825,7 @@
   },
   {
     "attribute": "Pink V-neck w/ Bone Print",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Heather Padded Vest",
@@ -869,11 +869,11 @@
   },
   {
     "attribute": "White Ethereum Shirt",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Black Ethereum Shirt",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "White Shirt w/ Silver Chain",
@@ -889,11 +889,11 @@
   },
   {
     "attribute": "Black Shirt Stripe w/ Dog Tag",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Hawaiian Lei",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Gold Collar",
@@ -913,7 +913,7 @@
   },
   {
     "attribute": "Gray Round Neck Shirt",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Royal Cape",
@@ -929,7 +929,7 @@
   },
   {
     "attribute": "Overlord Cape",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Black Round Neck Shirt",
@@ -941,7 +941,7 @@
   },
   {
     "attribute": "Cyan Scarf",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Cyan",
@@ -1017,7 +1017,7 @@
   },
   {
     "attribute": "Jaguar",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Sable",
@@ -1025,7 +1025,7 @@
   },
   {
     "attribute": "Dalmatian",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Blue Merle",
@@ -1033,7 +1033,7 @@
   },
   {
     "attribute": "Brindle",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Tricolor",
@@ -1041,31 +1041,31 @@
   },
   {
     "attribute": "Thick Eyebrows",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Smirking",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Pipe",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Angry",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Straight Face",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Rolling Eyes",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Raised Eyebrow",
-    "count": 0
+    "count": 1
   },
   {
     "attribute": "Meh",
@@ -1073,7 +1073,7 @@
   },
   {
     "attribute": "Awkward",
-    "count": 4
+    "count": 0
   },
   {
     "attribute": "Cigarette",
@@ -1141,15 +1141,15 @@
   },
   {
     "attribute": "Diamond Earring",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Sapphire Earring",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Ruby Earring",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Spike Piercing",
@@ -1225,11 +1225,11 @@
   },
   {
     "attribute": "Monocle",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Band Aid",
-    "count": 2
+    "count": 0
   },
   {
     "attribute": "Loupe",
@@ -1249,7 +1249,7 @@
   },
   {
     "attribute": "Clown Hair",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "King Crown w/ Blue Gem",
@@ -1265,15 +1265,15 @@
   },
   {
     "attribute": "Witch Hat",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Magician Hat",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Soldier Hat",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Luigi Cap",
@@ -1473,7 +1473,7 @@
   },
   {
     "attribute": "Clown",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "King Black Suit",
@@ -1489,15 +1489,15 @@
   },
   {
     "attribute": "Witch",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Magician",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Soldier",
-    "count": 1
+    "count": 0
   },
   {
     "attribute": "Luigi",

@@ -46,7 +46,7 @@ module.exports = [
     required: false,
   },
   {
-    name: 'headwear/headwear',
+    name: 'headwear/Headwear',
     count: 62,
     offset: {x: -1080, y: 0},
     attrNames:['','Blue Baseball Cap','Green Baseball Cap','Brown Cowboy Hat','Black Cowboy Hat','Racer Helmet','Graduation Hat','Nurse Hat','Chef Hat','Sailor Hat','Pilot Cap',

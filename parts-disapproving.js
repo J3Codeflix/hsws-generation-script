@@ -45,7 +45,7 @@ module.exports = [
     required: false,
   },
   {
-    name: 'headwear/headwear',
+    name: 'headwear/Headwear',
     count: 57,
     offset: {x: -1080, y: 0},
     attrNames:['','Gray Pirate Hat','Joker Hat','Clown Hair','King Crown w/ Blue Gem','Queen Crown w/ Red Gem','Wizard Hat','Witch Hat','Magician Hat','Soldier Hat','Luigi Cap',
