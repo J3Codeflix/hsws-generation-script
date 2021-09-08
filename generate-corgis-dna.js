@@ -45,6 +45,8 @@ const totalWeight = 99;
 let weightedTiers;
 let supArray = [];
 
+let dnaList = [];
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -68,7 +70,7 @@ function mergeImagesToPng(images, output) {
   });
 }
 
-async function saveFaceByCode(codeArr, outFile) {
+async function saveFaceByCode(codeArr, outFile, dna) {
   let images = [];
   let tier;
   codeArr.forEach((code, _index) => {
@@ -87,6 +89,8 @@ async function saveFaceByCode(codeArr, outFile) {
 
     images.push(img);
   });
+
+  dnaList.push(dna);
 
   if(codeArr[0].tier === 'disapproving' && codeArr[7].code === 15) {
     console.log('Hit space suit????? =====>>>>')
@@ -296,6 +300,11 @@ const generateSuperRareArray = async () => {
   }
 }
 
+const isDnaUnique = (dna) => {
+  let foundDna = dnaList.find((i) => i.join('') === dna.join(''));
+  return foundDna == undefined ? true : false;
+};
+
 async function generateCorgis() {
   // generate all tiers
   weightedTiers = await generateTiers();
@@ -497,8 +506,15 @@ async function generateCorgis() {
           }
         }
       }
+
+      let dna = [];
+      codeArr.forEach(element => {
+        dna.push(element.code);
+      });
+      const unique = isDnaUnique(dna);
+      console.log("🚀 ~ file: generate-corgis-dna.js ~ line 512 ~ generateCorgis ~ unique", unique)
       // generate image
-      await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
+      await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`, dna);
   
       // upload to IPFS
       let imgPinResult;

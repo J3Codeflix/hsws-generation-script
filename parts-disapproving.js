@@ -31,8 +31,8 @@ module.exports = [
     name: 'earaccessory/Earaccessory',
     count: 13,
     offset: {x: -1080, y: 0},
-    attrNames:['','Stud Gold Piercing','Hoop Gold Piercing','Stud Silver Piercing','Hoop Silver Piercing','Double Stud Gold Piercing','Triple Stud Gold Earring',
-    'Double Stud Silver Piercing','Triple Stud Silver Earring','Diamond Earring','Sapphire Earring','Ruby Earring','Spike Piercing'],
+    attrNames:['','Stud Gold Piercing','Hoop Gold Earring','Stud Silver Piercing','Hoop Silver Earring','Double Stud Gold Piercing','Triple Stud Gold Piercing',
+    'Double Stud Silver Piercing','Triple Stud Silver Piercing','Diamond Earring','Sapphire Earring','Ruby Earring','Spike Piercing'],
     required: false,
   },
   {

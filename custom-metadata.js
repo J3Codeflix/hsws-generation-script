@@ -33,7 +33,7 @@ module.exports = [
       {trait_type:"Face",value:"Batman's Joker"},
       {trait_type:"Nose",value:"Black"},
       {trait_type:"Outfit",value:"Batman's Joker Suit"},
-      {trait_type:"Headwear",value:"Batman's Joker Suit"},
+      {trait_type:"Headwear",value:"Batman's Joker Hair"},
       {trait_type:"Tier",value:"Rare"}
     ],
   },  
@@ -70,7 +70,8 @@ module.exports = [
     attributes: [
       {trait_type:"Background",value:"Blue"},
       {trait_type:"Fur",value:"Cosmic"},
-      {trait_type:"Face",value:"Zues Eyes"},
+      {trait_type:"Face",value:"Zeus Eyes"},
+      {trait_type:"Headwear",value:"Zeus Crown"},
       {trait_type:"Nose",value:"Black"}
     ],
   },
@@ -81,9 +82,9 @@ module.exports = [
     attributes: [
       {trait_type:"Background",value:"Yellow"},
       {trait_type:"Fur",value:"Fawn"},
-      {trait_type:"Face",value:"Hockey Mask"},
+      {trait_type:"Face",value:"H2O Delirious Signature Hockey Mask"},
       {trait_type:"Nose",value:"Black"},
-      {trait_type:"Outfit",value:"Blue Jacket"}
+      {trait_type:"Outfit",value:"H2O Delirious Signature Jacket"}
     ],
   },
   {
@@ -95,7 +96,7 @@ module.exports = [
       {trait_type:"Fur",value:"Gold"},
       {trait_type:"Face",value:"Rainbow-colored Grill"},
       {trait_type:"Nose",value:"Fire Breathing"},
-      {trait_type:"Outfit",value:"Gucci Jumper with Doge Pet"},
+      {trait_type:"Outfit",value:"Gucci-inspired Jumper w/ Doge Pet"},
       {trait_type:"Headwear",value:"Hat w/ Gold Chain"},
       {trait_type:"Ear Accessory",value:"DogeChain Earrings"}
     ],
@@ -472,7 +473,7 @@ module.exports = [
     attributes: [
       {trait_type:"Background",value:"Pink"},
       {trait_type:"Fur",value:"White"},
-      {trait_type:"Face",value:"Banana Mask"},
+      {trait_type:"Face",value:"Bandana Mask"},
       {trait_type:"Nose",value:"Black"},
       {trait_type:"Eyewear",value:"Black Rectangular Shades"},
       {trait_type:"Outfit",value:"Black Leather Jacket"},

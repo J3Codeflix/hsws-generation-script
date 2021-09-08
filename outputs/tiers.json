@@ -1,14 +1,14 @@
 [
   {
     "tier": "approving",
-    "count": 10520
+    "count": 10304
   },
   {
     "tier": "disapproving",
-    "count": 4784
+    "count": 5072
   },
   {
     "tier": "rare",
-    "count": 680
+    "count": 608
   }
 ]
