@@ -48,7 +48,7 @@ module.exports = [
     name: 'headwear/Headwear',
     count: 49,
     offset: {x: -1080, y: 0},
-    attrNames:['','CryptoCobain Hat','Brown Short Hair','Floral Unicorn Horn','Johnny Bravo Hair','Wonder Woman Crown','Blue Beanie','Red Beanie','Beret','Green Visor','Black Visor','Hardhat','Party Hat','Bull Horn',
+    attrNames:['','CryptoCobain Hat','Brown Short Hair','Floral Unicorn Horn','Johnny Bravo Hair','Wonder Woman Crown','Blue Beanie','Red Beanie','Beret','Green Visor','blue Visor','Hardhat','Party Hat','Bull Horn',
     'Cupcake','Red Apple','Green Apple','Trench Helmet','Mohawk Hair','Spike Hair','Emo Hair','Alpine Hat','Slouch Hat','Ashigaru Hat','Trapper Hat','Newsboy Hat','Propeller Hat',
     'Miner Helmet','Turban','Sakkat Hat','Flat Cap','Afro Hair','Nerdy Hair','Painter Hat','Reindeer Headband','Melted Ice Cream','Commie Hat','Fez','Bowler Hat','Bangs','Unicorn',
     'Fedora Hat','Brown Brush Up Hair','Bitcoin Cap','Fox Mask','Bear Onesie','Pressure Suit Helmet','Fire Dragon','Charizard'],
@@ -68,7 +68,7 @@ module.exports = [
       'Green Padded Armor','Yellow V-neck w/ Bone Print','Pink V-neck w/ Bone Print','Heather Padded Vest','Sky Blue Padded Vest','Red Polkadot Tie','Blue Polkadot Tie','Nude Striped Tie',
       'Violet Striped Tie','Xray Shirt','White T-shirt w/ Rainbow Print','Yellow T-shirt w/ Rainbow Print','Scientist Suit','White Ethereum Shirt','Black Ethereum Shirt',
       'White Shirt w/ Silver Chain','Black Shirt w/ Silver Chain','Camouflage w/ Silver Dog Tag','Black Shirt Stripe w/ Dog Tag','Hawaiian Lei','Gold Collar','Bitcoin Jacket',
-      'Rainbow Suspender w/ Bowtie','Denim Vest','Gray Round Neck Shirt','Royal Cape','Fur Jacket','Vintage Suit','Overlord Cape','Black Round Neck Shirt','Jaguar Shirt','Cyan Scarf',''],
+      'Rainbow Suspender w/ Bowtie','Denim Vest','Gray Round Neck Shirt','Royal Cape','Fur Jacket','Overlord Cape','Vintage Suit','Black Round Neck Shirt','Jaguar Shirt','Cyan Scarf',''],
     required: false,
   },
 ]

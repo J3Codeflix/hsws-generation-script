@@ -50,7 +50,7 @@ module.exports = [
     count: 62,
     offset: {x: -1080, y: 0},
     attrNames:['','Blue Baseball Cap','Green Baseball Cap','Brown Cowboy Hat','Black Cowboy Hat','Racer Helmet','Graduation Hat','Nurse Hat','Chef Hat','Sailor Hat','Pilot Cap',
-      'Purple Bandana','Pink Bandana','Taekwondo Headband','Blue Pirate Hat','King Crown w/ Pink Gem','Purple Queen Crown','Santa Claus Hat','White Basktball Headband',
+      'Purple Bandana','Pink Bandana','Taekwondo Headband','Blue Pirate Hat','King Crown w/ Blue Gem','Purple Queen Crown','Santa Claus Hat','White Basktball Headband',
       'Yellow Basketball Headband','Ninja Headband','Mario Cap','Angel Halo','Blue Beanie','Red Beanie','Beret','Green Visor','Blue Visor','Hardhat','Party Hat','Bull Horn',
       'Cupcake','Red Apple','Green Apple','Trench Helmet','Mohawk Hair','Spike Hair','Emo Hair','Alpine Hat','Slouch Hat','Ashigaru Hat','Trapper Hat','Newsboy Hat','Propeller Hat',
       'Miner Helmet','Turban','Sakkat Hat','Flat Cap','Afro Hair','Nerdy Hair','Painter Hat','Reindeer Headband','Melted Ice Cream','Commie Hat','Fez','Bowler Hat','Bangs','Unicorn',

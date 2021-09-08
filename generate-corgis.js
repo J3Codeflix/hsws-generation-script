@@ -379,6 +379,11 @@ async function generateCorgis() {
   
             if(random === 5) {
               codeArr[5].code = 0;
+              const newFace;
+              do {
+                newFace = generateRandomNumber(0, approvingParts[2].count - 1);
+              } while (newFace === 19)
+              codeArr[2].code = newFace;
             }
   
           } else if(i === 7) {
@@ -387,6 +392,13 @@ async function generateCorgis() {
               codeArr.push({ tier: tier, code: random});
             } else {
               codeArr.push({ tier: tier, code: outfit});
+              if(outfit === 23) {
+                const newFace;
+                do {
+                  newFace = generateRandomNumber(0, approvingParts[2].count - 1);
+                } while (newFace === 10);
+                codeArr[2].code = newFace;
+              }
             }
             if(codeArr[2].code === 13 || codeArr[2].code === 16) {
               codeArr[5].code = 0;
@@ -426,6 +438,19 @@ async function generateCorgis() {
               codeArr.push({ tier: tier, code: random});
             } else {
               codeArr.push({ tier: tier, code: outfit});
+              if(outfit === 11) {
+                const newFace;
+                do {
+                  newFace = generateRandomNumber(0, disapprovingParts[2].count - 1);
+                } while (newFace === 2 || newFace === 9);
+                codeArr[2].code = newFace;
+              } else if (outfit === 15 || outfit === 13) {
+                const newEarring;
+                do {
+                  newEarring = generateRandomNumber(0, disapprovingParts[4].count - 1);
+                } while (newEarring === 2 || newEarring === 3 || newEarring === 12);
+                codeArr[4].code = newEarring;
+              }
             }
           } else {
             codeArr.push({ tier: tier, code: random});
