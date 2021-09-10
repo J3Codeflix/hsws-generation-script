@@ -35,13 +35,24 @@ async function generateCorgis() {
       },
     }
     const jsonPinResult = await pinata.pinJSONToIPFS(ch, options);
-    characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
-    console.log(`SAVED ${imgCount}`)
+    console.log("🚀 ~ file: generate-customs.js ~ line 38 ~ generateCorgis ~ jsonPinResult", jsonPinResult)
+
+    fs.readFile(outputCharacterJSON, function (err, data) {
+      var metadata = JSON.parse(data)
+      metadata.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`)
+  
+      fs.writeFileSync(outputCharacterJSON, JSON.stringify(metadata, null, 2))
+    })
+  
+    console.log(`generated approving corgis #${imgCount}`);
+    // characters.push(`https://approvingcorgis.mypinata.cloud/ipfs/${jsonPinResult.IpfsHash}`);
+    // console.log(`SAVED ${imgCount}`)
+
     imgCount++;
     
   }
 
-  fs.writeFileSync(outputCharacterJSON, JSON.stringify(characters,null,2));
+  // fs.writeFileSync(outputCharacterJSON, JSON.stringify(characters,null,2));
 }
 
 async function main() {

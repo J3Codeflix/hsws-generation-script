@@ -47,7 +47,7 @@ const totalWeight = 99;
 
 let weightedTiers;
 let supArray = [];
-
+let ddnaList = [];
 let falseDna = 0;
 
 function getRandomInt(max) {
@@ -73,7 +73,7 @@ function mergeImagesToPng(images, output) {
   });
 }
 
-async function saveFaceByCode(codeArr, outFile, dna) {
+async function saveFaceByCode(codeArr, outFile) {
   let images = [];
   let tier;
   codeArr.forEach((code, _index) => {
@@ -302,12 +302,9 @@ const generateSuperRareArray = async () => {
 }
 
 const isDnaUnique = async (dna) => {
-  fs.readFile(dnaList, async function readFileCallback(err, data) {
-    var dnaJson = JSON.parse(data);
-    console.log("🚀 ~ file: generate-corgis-dna.js ~ line 307 ~ dnaJson", dnaJson)
-    let foundDna = dnaJson.find((i) => i.join('') === dna.join(''));
-
-  })
+  let foundDna = ddnaList.find((i) => i.join('') === dna.join(''));
+  console.log("🚀 ~ file: generate-corgis-no-ipfs.js ~ line 306 ~ isDnaUnique ~ foundDna", foundDna)
+  return foundDna === undefined ? true : false;
 };
 
 async function generateCorgis() {
@@ -321,8 +318,8 @@ async function generateCorgis() {
   
   console.log("🚀 ~ file: generate-corgis.js ~ line 306 ~ generateCorgis ~ supArray", supArray)
 
-  let imgCount = 40;
-  let supIndex = 0;
+  let imgCount = 5171;
+  let supIndex = 6;
   let excludedRareFace = [0,1,5,6];
   let excludedRareOutfit = [1,3,9,13];
   let excludedDisapprovingOutfits = [11,13, 14, 15];
@@ -330,6 +327,7 @@ async function generateCorgis() {
 
   while(imgCount < desiredCount) {
     codeArr = [];
+    let dna = [];
     let outfit = 0;
     let noEyewear = false;
 
@@ -367,165 +365,177 @@ async function generateCorgis() {
       supIndex+=1;
 
     } else {
+      let isUnique;
 
-      // generate code array per tiers
-      const randomTier = await getRandomInt(totalWeight);
-      const tier = weightedTiers[randomTier];
-      // const tier = 'rare';
-      approvingCorgiTiers[tier]+=1;
-      for (let i=0; i < 8; i++) {
-        if(tier === 'approving'){
-          let random = generateRandomNumber(0, approvingParts[i].count - 1);
-          
-          if(i === 6) {
-            outfit = getPair(random, tier);
-            codeArr.push({ tier: tier, code: random});
-            if(random === 6) {
-              codeArr[5].code = 0;
-            }
-  
-            if(random === 14) {
-              const chance = generateRandomNumber(0, 1);
-              if(chance === 0) {
-                codeArr[5].code = 0;
-              }else{
-                codeArr[5].code =16;
-              }
-            }
-  
-            if(random === 5) {
-              codeArr[5].code = 0;
-              let newFace;
-              do {
-                newFace = generateRandomNumber(0, approvingParts[2].count - 1);
-              } while (newFace === 19)
-              codeArr[2].code = newFace;
-            }
-  
-          } else if(i === 7) {
-            if(outfit === -1) {
-              random = generateRandomNumber(23, approvingParts[7].count - 1);
+      do {
+        dna = [];
+        const randomTier = await getRandomInt(totalWeight);
+        const tier = weightedTiers[randomTier];
+        // const tier = 'rare';
+        approvingCorgiTiers[tier]+=1;
+        for (let i=0; i < 8; i++) {
+          if(tier === 'approving'){
+            let random = generateRandomNumber(0, approvingParts[i].count - 1);
+            
+            if(i === 6) {
+              outfit = getPair(random, tier);
               codeArr.push({ tier: tier, code: random});
-            } else {
-              codeArr.push({ tier: tier, code: outfit});
-              if(outfit === 23) {
+              if(random === 6) {
+                codeArr[5].code = 0;
+              }
+    
+              if(random === 14) {
+                const chance = generateRandomNumber(0, 1);
+                if(chance === 0) {
+                  codeArr[5].code = 0;
+                }else{
+                  codeArr[5].code =16;
+                }
+              }
+    
+              if(random === 5) {
+                codeArr[5].code = 0;
                 let newFace;
                 do {
                   newFace = generateRandomNumber(0, approvingParts[2].count - 1);
-                } while (newFace === 10);
+                } while (newFace === 19)
                 codeArr[2].code = newFace;
               }
-            }
-            if(codeArr[2].code === 13 || codeArr[2].code === 16) {
-              codeArr[5].code = 0;
-            }
-          } else {
-            codeArr.push({ tier: tier, code: random});
-          }
-        } else if(tier === 'disapproving'){
-          let random = generateRandomNumber(0, disapprovingParts[i].count - 1);
-          
-          if(i === 6) {
-            outfit = getPair(random, tier);
-            codeArr.push({ tier: tier, code: random});
-            if(random === 1 || random === 12) {
-              const chance = generateRandomNumber(0, 1, 2);
-              if(chance === 0) {
-                codeArr[5].code = 0;
-              } else if(chance === 1) { 
-                codeArr[5].code = 19;
-              }else{
-                codeArr[5].code = 20;
+    
+            } else if(i === 7) {
+              if(outfit === -1) {
+                random = generateRandomNumber(23, approvingParts[7].count - 1);
+                codeArr.push({ tier: tier, code: random});
+              } else {
+                codeArr.push({ tier: tier, code: outfit});
+                if(outfit === 23) {
+                  let newFace;
+                  do {
+                    newFace = generateRandomNumber(0, approvingParts[2].count - 1);
+                  } while (newFace === 10);
+                  codeArr[2].code = newFace;
+                }
               }
-            }
-            if(random === 3){
-              codeArr[5].code = 0;
-            }
-            if(excludedDisapprovingOutfits.includes(random)) {
-              let newFace;
-              do {
-                newFace = generateRandomNumber(0, rareParts[2].count - 1);
-              } while (excludedDisapprovingFaces.includes(newFace));
-              codeArr[2].code = newFace;
-            }
-          } else if(i === 7) {
-            if(outfit === -1) {
-              random = generateRandomNumber(40, disapprovingParts[7].count - 1);
-              codeArr.push({ tier: tier, code: random});
+              if(codeArr[2].code === 13 || codeArr[2].code === 16) {
+                codeArr[5].code = 0;
+              }
             } else {
-              codeArr.push({ tier: tier, code: outfit});
-              if(outfit === 11) {
+              codeArr.push({ tier: tier, code: random});
+            }
+          } else if(tier === 'disapproving'){
+            let random = generateRandomNumber(0, disapprovingParts[i].count - 1);
+            
+            if(i === 6) {
+              outfit = getPair(random, tier);
+              codeArr.push({ tier: tier, code: random});
+              if(random === 1 || random === 12) {
+                const chance = generateRandomNumber(0, 1, 2);
+                if(chance === 0) {
+                  codeArr[5].code = 0;
+                } else if(chance === 1) { 
+                  codeArr[5].code = 19;
+                }else{
+                  codeArr[5].code = 20;
+                }
+              }
+              if(random === 3){
+                codeArr[5].code = 0;
+              }
+              if(excludedDisapprovingOutfits.includes(random)) {
                 let newFace;
                 do {
-                  newFace = generateRandomNumber(0, disapprovingParts[2].count - 1);
-                } while (newFace === 2 || newFace === 9);
+                  newFace = generateRandomNumber(0, rareParts[2].count - 1);
+                } while (excludedDisapprovingFaces.includes(newFace));
                 codeArr[2].code = newFace;
-              } else if (outfit === 15 || outfit === 13) {
-                let newEarring;
-                do {
-                  newEarring = generateRandomNumber(0, disapprovingParts[4].count - 1);
-                } while (newEarring === 2 || newEarring === 3 || newEarring === 12);
-                codeArr[4].code = newEarring;
               }
-            }
-          } else {
-            codeArr.push({ tier: tier, code: random});
-          }
-        } else {
-          let random = generateRandomNumber(0, rareParts[i].count - 1);
-  
-          if(i === 2) {
-            if(excludedRareFace.includes(random)) {
-              noEyewear = true;
-            }
-            codeArr.push({ tier: tier, code: random});
-          } else if(i === 5) {
-            if(noEyewear) {
-              codeArr.push({ tier: tier, code: 0});
+            } else if(i === 7) {
+              if(outfit === -1) {
+                random = generateRandomNumber(40, disapprovingParts[7].count - 1);
+                codeArr.push({ tier: tier, code: random});
+              } else {
+                codeArr.push({ tier: tier, code: outfit});
+                if(outfit === 11) {
+                  let newFace;
+                  do {
+                    newFace = generateRandomNumber(0, disapprovingParts[2].count - 1);
+                  } while (newFace === 2 || newFace === 9);
+                  codeArr[2].code = newFace;
+                } else if (outfit === 15 || outfit === 13) {
+                  let newEarring;
+                  do {
+                    newEarring = generateRandomNumber(0, disapprovingParts[4].count - 1);
+                  } while (newEarring === 2 || newEarring === 3 || newEarring === 12);
+                  codeArr[4].code = newEarring;
+                }
+              }
             } else {
               codeArr.push({ tier: tier, code: random});
             }
-          } else if (i === 6) {
-            outfit = getPair(random, tier);
-            codeArr.push({ tier: tier, code: random});
-            if(random === 5) {
-              const face = generateRandomNumber(0, 2);
-              codeArr[2].code = face;
-            }
-          } else if(i === 7) {
-            if(outfit === -1) {
-              let newOutfit
-              do {
-                newOutfit = generateRandomNumber(0, rareParts[7].count - 1);
-              } while (excludedRareOutfit.includes(newOutfit));
-              codeArr.push({ tier: tier, code: newOutfit});
-            } else {
-              if(outfit === 9 || outfit === 3) {
-                console.log('is Dragooooooon or pressure suit')
+          } else {
+            let random = generateRandomNumber(0, rareParts[i].count - 1);
+    
+            if(i === 2) {
+              if(excludedRareFace.includes(random)) {
+                noEyewear = true;
+              }
+              codeArr.push({ tier: tier, code: random});
+            } else if(i === 5) {
+              if(noEyewear) {
+                codeArr.push({ tier: tier, code: 0});
+              } else {
+                codeArr.push({ tier: tier, code: random});
+              }
+            } else if (i === 6) {
+              outfit = getPair(random, tier);
+              codeArr.push({ tier: tier, code: random});
+              if(random === 5) {
                 const face = generateRandomNumber(0, 2);
                 codeArr[2].code = face;
-                codeArr[5].code = 0;
               }
-              codeArr.push({ tier: tier, code: outfit});
+            } else if(i === 7) {
+              if(outfit === -1) {
+                let newOutfit
+                do {
+                  newOutfit = generateRandomNumber(0, rareParts[7].count - 1);
+                } while (excludedRareOutfit.includes(newOutfit));
+                codeArr.push({ tier: tier, code: newOutfit});
+              } else {
+                if(outfit === 9 || outfit === 3) {
+                  console.log('is Dragooooooon or pressure suit')
+                  const face = generateRandomNumber(0, 2);
+                  codeArr[2].code = face;
+                  codeArr[5].code = 0;
+                }
+                codeArr.push({ tier: tier, code: outfit});
+              }
+            } else {
+              codeArr.push({ tier: tier, code: random});
             }
-          } else {
-            codeArr.push({ tier: tier, code: random});
           }
         }
-      }
 
-      let dna = [];
-      codeArr.forEach(element => {
-        dna.push(element.code);
-      });
-      const unique = await isDnaUnique(dna);
-      console.log("🚀 ~ file: generate-corgis-dna.js ~ line 529 ~ generateCorgis ~ unique", unique)
+        
+        codeArr.forEach(element => {
+          dna.push(element.code);
+        });
+        isUnique = await isDnaUnique(dna);
+        ddnaList.push(dna);
+        console.log("🚀 ~ file: generate-corgis-no-ipfs.js ~ line 554 ~ generateCorgis ~ ddnaList", ddnaList)
+        
+        if(!isUnique) falseDna+=1;
+        console.log("🚀 ~ file: generate-corgis-dna.js ~ line 533 ~ generateCorgis ~ unique", isUnique)
+        
+      } while (!isUnique);
 
-      
-      if(!unique) falseDna+=1;
+      fs.readFile(dnaList, async function (err, data) {
+        var dnaJson = JSON.parse(data);
+        dnaJson.push(dna);
+
+        fs.writeFileSync(dnaList, JSON.stringify(dnaJson))
+      })
 
       // generate image
-      await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`, dna);
+      await saveFaceByCode(codeArr, `${outputFolder}/approving-corgi${imgCount}${ext}`);
   
       // upload to IPFS
       let imgPinResult;
