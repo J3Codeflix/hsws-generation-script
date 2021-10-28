@@ -8,16 +8,17 @@ module.exports = [
   },
   {
     name: 'fur/Fur',
-    count: 9,
+    count: 13,
     offset: {x:  -1080, y: 0},
-    attrNames:['Fawn','Orange','Red','Pink','Chocolate','Gray','Maroon','Gold','Snow White'],
+    attrNames:['Fawn','Orange','Red','Pink','Chocolate','Gray','Maroon','Jaguar','Sable','Dalmatian','Blue Merle','Brindle','Tricolor'],
     required: true,
   },
   {
     name: 'eyes/Eyes',
     count: 22,
     offset: {x: -1080, y: 0},
-    attrNames:['angry','bored 1','bored 2','closed','focused','sad','skeptical','surprised','tired','wink','8 ball angry','8 ball surprised','button closed','taped closed'],
+    attrNames:['angry','bored 1','bored 2','closed','focused','sad','skeptical','surprised','tired','wink','toxic bored 1','toxic bored 2','trippy bored 1','trippy bored 2',
+      'trippy surprised','reptile angry','reptile surprised'],
     required: true,
   },
   {
