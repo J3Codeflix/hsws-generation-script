@@ -1,5 +1,8 @@
 {
-  "approving": 3,
-  "disapproving": 2,
-  "rare": 0
+  "uncommon": 252,
+  "veryUncommon": 0,
+  "rare": 73,
+  "epic": 47,
+  "legendary": null,
+  "veryuncommon": null
 }

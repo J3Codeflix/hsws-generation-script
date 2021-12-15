@@ -1,14 +1,22 @@
 [
   {
-    "tier": "approving",
-    "count": 24
+    "tier": "uncommon",
+    "count": 1764
   },
   {
-    "tier": "disapproving",
-    "count": 16
+    "tier": "veryuncommon",
+    "count": 840
   },
   {
     "tier": "rare",
-    "count": 0
+    "count": 511
+  },
+  {
+    "tier": "epic",
+    "count": 329
+  },
+  {
+    "tier": "legendary",
+    "count": 56
   }
 ]
